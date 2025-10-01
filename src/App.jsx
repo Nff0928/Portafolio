@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { Menu, X, ChevronDown, Instagram, Twitter, Mail, Linkedin, Target, TrendingUp, Users, Award, Briefcase, Sparkles, Code, BarChart3, Database, Globe } from 'lucide-react';
 import './index.css';
 
-const DualPortfolio = () => {
+const DualPortfolio = ({ initialProfile = 'fabiana' }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
-  const [currentProfile, setCurrentProfile] = useState('fabiana'); // 'fabiana' or 'nicolas'
+  const [currentProfile, setCurrentProfile] = useState(initialProfile); // 'fabiana' or 'nicolas'
 
   const menuItems = currentProfile === 'fabiana' ? [
     { 
@@ -181,23 +181,26 @@ const DualPortfolio = () => {
       institution: 'Johns Hopkins University',
       date: 'Jun 2025',
       id: ''
+    },
+    {
+      name: 'Tecnónologo en Análisis y Desarrollo de Sistemas de Información',
+      institution: 'SENA',
+      date: 'Dic 2023',
+      id: ''
+    },
+    {
+      name: 'Desarrollo web- Frontend web Developer',
+      institution: 'Udemy',
+      date: 'Feb 2023',
+      id: ''
     }
   ];
 
-  const switchProfile = () => {
-    setCurrentProfile(currentProfile === 'fabiana' ? 'nicolas' : 'fabiana');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  // Profile switching UI is handled on Home; keep state if needed for internal conditional sections
 
   return (
     <div className="min-h-screen bg-black text-white font-sans">
-      {/* Profile Switch Button - Fixed */}
-      <button
-        onClick={switchProfile}
-        className="fixed top-24 right-6 z-40 bg-white text-black px-6 py-3 text-sm tracking-widest uppercase hover:bg-gray-200 transition-all duration-300 border-2 border-white shadow-2xl"
-      >
-        Ver Perfil de {currentProfile === 'fabiana' ? 'Nicolás' : 'Fabiana'}
-      </button>
+      {/* Profile pages render only personal content below */}
 
       {/* Navigation */}
       <nav className="fixed w-full top-0 z-50 bg-black bg-opacity-95 backdrop-blur-sm border-b border-gray-800">
@@ -342,16 +345,13 @@ const DualPortfolio = () => {
               ) : (
                 <>
                   <p className="text-lg leading-relaxed text-gray-300 mb-6">
-                    Soy <span className="text-white font-normal">Ingeniero de Sistemas</span> con amplia experiencia en desarrollo de software y pruebas, especializado en tecnologías como Java, Spring Boot, Python (Django) y bases de datos PostgreSQL.
+                    Soy <span className="text-white font-normal">Ingeniero de Sistemas</span> con amplia experiencia en desarrollo de software y pruebas, con conocimiento en tecnologías como Java, Spring Boot, Python (Django) y bases de datos PostgreSQL.
                   </p>
                   <p className="text-lg leading-relaxed text-gray-300 mb-6">
                     Me especializo en el <span className="text-white font-normal">diseño y desarrollo de páginas web</span> que combinan estética, funcionalidad y rendimiento, siempre orientadas a generar experiencias digitales fluidas y memorables.
                   </p>
                   <p className="text-lg leading-relaxed text-gray-300 mb-6">
                     Mi enfoque va más allá del desarrollo: integro la <span className="text-white font-normal">analítica de datos</span> para medir, entender y optimizar cada interacción, asegurando que cada proyecto digital no solo luzca bien, sino que también cumpla objetivos de negocio.
-                  </p>
-                  <p className="text-lg leading-relaxed text-gray-300 mb-8">
-                    Actualmente trabajo como <span className="text-white font-normal">QC y Tester en BBVA</span>, aplicando metodologías ágiles como Scrum y Kanban para garantizar soluciones eficientes y de alta calidad.
                   </p>
                   <div className="border-l-4 border-white pl-6">
                     <p className="text-xl font-light italic text-gray-200">
