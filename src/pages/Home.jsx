@@ -1,108 +1,261 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Menu, X, ChevronDown } from 'lucide-react';
 
 const Home = () => {
   const navigate = useNavigate();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null);
+
+  const menuItems = [
+    { 
+      name: 'Inicio', 
+      href: '#home'
+    },
+    { 
+      name: 'Nuestros CEOs', 
+      href: '#ceos',
+      submenu: ['Fabiana Luengas', 'Nicolás Fonseca']
+    },
+    { 
+      name: 'Empresa', 
+      href: '#empresa',
+      submenu: ['Misión', 'Visión', 'Áreas Principales']
+    },
+    { 
+      name: 'Contacto', 
+      href: '#contacto'
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-black text-white font-sans">
-      <section className="pt-28 px-6 lg:px-12">
+      {/* Navigation */}
+      <nav className="fixed w-full top-0 z-50 bg-black bg-opacity-95 backdrop-blur-sm border-b border-gray-800">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="flex items-center justify-between h-20">
+            {/* Logo */}
+            <div className="text-2xl font-light tracking-widest">
+              PORTFOLIO DUAL
+            </div>
+
+            {/* Desktop Menu */}
+            <div className="hidden md:flex items-center space-x-12">
+              {menuItems.map((item, idx) => (
+                <div 
+                  key={idx} 
+                  className="relative group"
+                  onMouseEnter={() => setActiveDropdown(idx)}
+                  onMouseLeave={() => setActiveDropdown(null)}
+                >
+                  <a 
+                    href={item.href}
+                    className="text-sm tracking-wider uppercase flex items-center gap-1 hover:text-gray-400 transition-colors duration-300"
+                  >
+                    {item.name}
+                    {item.submenu && <ChevronDown size={14} />}
+                  </a>
+                  
+                  {item.submenu && activeDropdown === idx && (
+                    <div className="absolute top-full left-0 mt-2 w-56 bg-black border border-gray-800 shadow-2xl">
+                      {item.submenu.map((subitem, subidx) => (
+                        <a
+                          key={subidx}
+                          href={subitem === 'Fabiana Luengas' ? '/fabiana' : 
+                                subitem === 'Nicolás Fonseca' ? '/nicolas' :
+                                subitem === 'Misión' ? '#mision' :
+                                subitem === 'Visión' ? '#vision' :
+                                subitem === 'Áreas Principales' ? '#areas-principales' : '#'}
+                          className="block px-6 py-3 text-xs tracking-wider uppercase hover:bg-white hover:text-black transition-all duration-200"
+                        >
+                          {subitem}
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button 
+              className="md:hidden"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden bg-black border-t border-gray-800">
+            {menuItems.map((item, idx) => (
+              <div key={idx}>
+                <a 
+                  href={item.href}
+                  className="block px-6 py-4 text-sm tracking-wider uppercase border-b border-gray-900 hover:bg-white hover:text-black transition-all duration-200"
+                >
+                  {item.name}
+                </a>
+                {item.submenu && item.submenu.map((subitem, subidx) => (
+                  <a
+                    key={subidx}
+                    href={subitem === 'Fabiana Luengas' ? '/fabiana' : 
+                          subitem === 'Nicolás Fonseca' ? '/nicolas' :
+                          subitem === 'Misión' ? '#mision' :
+                          subitem === 'Visión' ? '#vision' :
+                          subitem === 'Áreas Principales' ? '#areas-principales' : '#'}
+                    className="block px-12 py-3 text-xs tracking-wider uppercase bg-gray-900 border-b border-gray-800 hover:bg-white hover:text-black transition-all duration-200"
+                  >
+                    {subitem}
+                  </a>
+                ))}
+              </div>
+            ))}
+          </div>
+        )}
+      </nav>
+
+      <section id="home" className="pt-32 px-6 lg:px-12">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-5xl md:text-6xl font-thin tracking-widest mb-6 text-center">CONOCE A NUESTROS CEOS</h2>
-          <p className="text-center text-gray-400 mb-14 tracking-wide text-lg">Selecciona un perfil para explorar su trayectoria y servicios</p>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="text-center mb-20">
+            <h2 id="ceos" className="text-6xl md:text-7xl font-thin tracking-widest mb-8 text-center bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">CONOCE A NUESTROS CEOs</h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-transparent via-white to-transparent mx-auto mb-8"></div>
+            <p className="text-center text-gray-400 mb-8 tracking-wide text-xl max-w-3xl mx-auto leading-relaxed">Selecciona un perfil para explorar su trayectoria y servicios</p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-12">
             <button
               onClick={() => navigate('/fabiana')}
-              className={`group relative overflow-hidden p-10 text-left bg-gradient-to-br from-gray-950 to-black border border-gray-800 hover:border-white transition-all duration-500 cursor-pointer hover:-translate-y-1 hover:shadow-2xl`}
+              className={`group relative overflow-hidden p-12 text-left bg-gradient-to-br from-gray-950 to-black border border-gray-800 hover:border-white transition-all duration-700 cursor-pointer hover:-translate-y-2 hover:shadow-2xl hover:shadow-white/10`}
               aria-label="Ver perfil de Fabiana"
             >
-              <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: 'radial-gradient(600px circle at var(--x,50%) var(--y,50%), rgba(255,255,255,0.08), transparent 40%)' }} />
-              <div className="flex items-center gap-5">
-                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 border-2 border-white flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-                  <span className="text-3xl font-light">FL</span>
+              <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{ background: 'radial-gradient(600px circle at var(--x,50%) var(--y,50%), rgba(255,255,255,0.12), transparent 40%)' }} />
+              <div className="relative z-10">
+                <div className="flex items-center gap-6 mb-8">
+                  <div className="w-24 h-24 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 border-2 border-white flex items-center justify-center group-hover:scale-110 transition-transform duration-500 group-hover:border-gray-300">
+                    <span className="text-4xl font-light">FL</span>
+                  </div>
+                  <div>
+                    <h3 className="text-4xl tracking-wider mb-2 group-hover:text-white transition-colors duration-300">Fabiana Luengas</h3>
+                    <p className="text-lg text-gray-400 group-hover:text-gray-200 transition-colors duration-300">Brand Stylist & Creative Strategist</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-3xl tracking-wider">Fabiana Luengas</h3>
-                  <p className="text-base text-gray-400">Brand Stylist & Creative Strategist</p>
+                <p className="text-gray-400 group-hover:text-gray-200 leading-relaxed text-xl transition-colors duration-300">
+                  Estratega digital con enfoque 360°, dirección creativa y crecimiento de marca.
+                </p>
+                <div className="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <div className="w-full h-0.5 bg-gradient-to-r from-transparent via-white to-transparent"></div>
                 </div>
               </div>
-              <p className="mt-6 text-gray-400 group-hover:text-gray-200 leading-relaxed text-lg">
-                Estratega digital con enfoque 360°, dirección creativa y crecimiento de marca.
-              </p>
             </button>
 
             <button
               onClick={() => navigate('/nicolas')}
-              className={`group relative overflow-hidden p-10 text-left bg-gradient-to-br from-gray-950 to-black border border-gray-800 hover:border-white transition-all duration-500 cursor-pointer hover:-translate-y-1 hover:shadow-2xl`}
+              className={`group relative overflow-hidden p-12 text-left bg-gradient-to-br from-gray-950 to-black border border-gray-800 hover:border-white transition-all duration-700 cursor-pointer hover:-translate-y-2 hover:shadow-2xl hover:shadow-white/10`}
               aria-label="Ver perfil de Nicolás"
             >
-              <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: 'radial-gradient(600px circle at var(--x,50%) var(--y,50%), rgba(255,255,255,0.08), transparent 40%)' }} />
-              <div className="flex items-center gap-5">
-                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 border-2 border-white flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-                  <span className="text-3xl font-light">NF</span>
+              <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{ background: 'radial-gradient(600px circle at var(--x,50%) var(--y,50%), rgba(255,255,255,0.12), transparent 40%)' }} />
+              <div className="relative z-10">
+                <div className="flex items-center gap-6 mb-8">
+                  <div className="w-24 h-24 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 border-2 border-white flex items-center justify-center group-hover:scale-110 transition-transform duration-500 group-hover:border-gray-300">
+                    <span className="text-4xl font-light">NF</span>
+                  </div>
+                  <div>
+                    <h3 className="text-4xl tracking-wider mb-2 group-hover:text-white transition-colors duration-300">Nicolás Fonseca</h3>
+                    <p className="text-lg text-gray-400 group-hover:text-gray-200 transition-colors duration-300">Especialista en Páginas Web y Analítica de Datos</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-3xl tracking-wider">Nicolás Fonseca</h3>
-                  <p className="text-base text-gray-400">Especialista en Páginas Web y Analítica de Datos</p>
+                <p className="text-gray-400 group-hover:text-gray-200 leading-relaxed text-xl transition-colors duration-300">
+                  Desarrollo web orientado a resultados con integración de analítica y calidad.
+                </p>
+                <div className="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <div className="w-full h-0.5 bg-gradient-to-r from-transparent via-white to-transparent"></div>
                 </div>
               </div>
-              <p className="mt-6 text-gray-400 group-hover:text-gray-200 leading-relaxed text-lg">
-                Desarrollo web orientado a resultados con integración de analítica y calidad.
-              </p>
             </button>
           </div>
         </div>
       </section>
 
-      <section className="py-28 px-6 lg:px-12 bg-gradient-to-b from-black to-gray-900">
+      {/* Separador visual */}
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-800 to-transparent"></div>
+      
+      <section id="empresa" className="py-32 px-6 lg:px-12 bg-gradient-to-b from-black to-gray-900">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-10 mb-14">
-            <div className="relative p-10 bg-black border border-gray-800 hover:border-white transition-colors duration-300">
-              <div className="absolute -top-0.5 -left-0.5 w-24 h-24 pointer-events-none opacity-60" style={{background:'conic-gradient(from 180deg at 50% 50%, rgba(255,255,255,0.25), transparent 60%)'}}></div>
-              <h3 className="text-3xl tracking-wider mb-4">Misión de la empresa</h3>
-              <p className="text-gray-400 leading-relaxed text-lg">
-                Impulsar el crecimiento de marcas y negocios a través de estrategias creativas,
-                desarrollo web de alto rendimiento y decisiones guiadas por datos.
+          <div className="text-center mb-20">
+            <h2 className="text-5xl md:text-6xl font-thin tracking-widest mb-8 text-center bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">NUESTRA EMPRESA</h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-transparent via-white to-transparent mx-auto mb-8"></div>
+            <p className="text-center text-gray-400 mb-8 tracking-wide text-xl max-w-3xl mx-auto leading-relaxed">Conoce nuestra misión, visión y áreas de especialización</p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-12 mb-20">
+            <div id="mision" className="group relative p-12 bg-black border border-gray-800 hover:border-white transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-white/5">
+              <div className="absolute -top-0.5 -left-0.5 w-24 h-24 pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity duration-500" style={{background:'conic-gradient(from 180deg at 50% 50%, rgba(255,255,255,0.25), transparent 60%)'}}></div>
+              <h3 className="text-4xl tracking-wider mb-6 group-hover:text-white transition-colors duration-300">Misión de la empresa</h3>
+              <p className="text-gray-400 leading-relaxed text-xl group-hover:text-gray-200 transition-colors duration-300">
+                Crear experiencias digitales integrales que combinen estrategia de marca auténtica con desarrollo web de alto rendimiento, impulsando el crecimiento de negocios a través de la sinergia entre creatividad y tecnología.
               </p>
             </div>
-            <div className="relative p-10 bg-black border border-gray-800 hover:border-white transition-colors duration-300">
-              <div className="absolute -top-0.5 -left-0.5 w-24 h-24 pointer-events-none opacity-60" style={{background:'conic-gradient(from 180deg at 50% 50%, rgba(255,255,255,0.25), transparent 60%)'}}></div>
-              <h3 className="text-3xl tracking-wider mb-4">Visión de la empresa</h3>
-              <p className="text-gray-400 leading-relaxed text-lg">
-                Ser un referente en Latinoamérica en marketing digital estratégico y experiencias web
-                que conecten propósito, estética y resultados medibles.
+            <div id="vision" className="group relative p-12 bg-black border border-gray-800 hover:border-white transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-white/5">
+              <div className="absolute -top-0.5 -left-0.5 w-24 h-24 pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity duration-500" style={{background:'conic-gradient(from 180deg at 50% 50%, rgba(255,255,255,0.25), transparent 60%)'}}></div>
+              <h3 className="text-4xl tracking-wider mb-6 group-hover:text-white transition-colors duration-300">Visión de la empresa</h3>
+              <p className="text-gray-400 leading-relaxed text-xl group-hover:text-gray-200 transition-colors duration-300">
+                Ser el referente en Latinoamérica en la creación de ecosistemas digitales completos, donde cada marca encuentre su voz única a través de estrategias creativas personalizadas y plataformas web que conviertan visitantes en clientes.
               </p>
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-10 mb-14">
-            <div className="relative p-10 bg-black border border-gray-800 hover:border-white transition-colors duration-300">
-              <div className="absolute -top-0.5 -left-0.5 w-24 h-24 pointer-events-none opacity-60" style={{background:'conic-gradient(from 180deg at 50% 50%, rgba(255,255,255,0.25), transparent 60%)'}}></div>
-              <h3 className="text-3xl tracking-wider mb-4">Contactos</h3>
-              <div className="space-y-3 text-gray-400 text-lg">
-                <p><span className="text-gray-500 uppercase text-xs">Email Fabiana:</span> fabiana@brandstrategist.com</p>
-                <p><span className="text-gray-500 uppercase text-xs">Email Nicolás:</span> nicolas.fonseca0928@gmail.com</p>
-                <p><span className="text-gray-500 uppercase text-xs">LinkedIn Fabiana:</span> <a href="https://www.linkedin.com/in/fabiana-luengas-beltr%C3%A1n/" target="_blank" rel="noopener noreferrer" className="underline hover:text-white">Ver perfil</a></p>
-                <p><span className="text-gray-500 uppercase text-xs">LinkedIn Nicolás:</span> <a href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile" target="_blank" rel="noopener noreferrer" className="underline hover:text-white">Ver perfil</a></p>
+          <div className="grid md:grid-cols-2 gap-12 mb-20">
+            <div id="contacto" className="group relative p-12 bg-black border border-gray-800 hover:border-white transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-white/5">
+              <div className="absolute -top-0.5 -left-0.5 w-24 h-24 pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity duration-500" style={{background:'conic-gradient(from 180deg at 50% 50%, rgba(255,255,255,0.25), transparent 60%)'}}></div>
+              <h3 className="text-4xl tracking-wider mb-8 group-hover:text-white transition-colors duration-300">Contactos</h3>
+              <div className="space-y-6 text-gray-400 text-lg">
+                <div className="group-hover:text-gray-200 transition-colors duration-300">
+                  <p className="text-gray-500 uppercase text-sm mb-2">Email Fabiana:</p>
+                  <p className="text-xl">fabiana@brandstrategist.com</p>
+                </div>
+                <div className="group-hover:text-gray-200 transition-colors duration-300">
+                  <p className="text-gray-500 uppercase text-sm mb-2">Email Nicolás:</p>
+                  <p className="text-xl">nicolas.fonseca0928@gmail.com</p>
+                </div>
+                <div className="group-hover:text-gray-200 transition-colors duration-300">
+                  <p className="text-gray-500 uppercase text-sm mb-2">LinkedIn Fabiana:</p>
+                  <a href="https://www.linkedin.com/in/fabiana-luengas-beltr%C3%A1n/" target="_blank" rel="noopener noreferrer" className="text-xl underline hover:text-white transition-colors duration-300">Ver perfil</a>
+                </div>
+                <div className="group-hover:text-gray-200 transition-colors duration-300">
+                  <p className="text-gray-500 uppercase text-sm mb-2">LinkedIn Nicolás:</p>
+                  <a href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile" target="_blank" rel="noopener noreferrer" className="text-xl underline hover:text-white transition-colors duration-300">Ver perfil</a>
+                </div>
               </div>
             </div>
-            <div className="relative p-10 bg-black border border-gray-800 hover:border-white transition-colors duration-300">
-              <div className="absolute -top-0.5 -left-0.5 w-24 h-24 pointer-events-none opacity-60" style={{background:'conic-gradient(from 180deg at 50% 50%, rgba(255,255,255,0.25), transparent 60%)'}}></div>
-              <h3 className="text-3xl tracking-wider mb-4">Casos de éxito</h3>
-              <p className="text-gray-400 leading-relaxed text-lg">
+            <div className="group relative p-12 bg-black border border-gray-800 hover:border-white transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-white/5">
+              <div className="absolute -top-0.5 -left-0.5 w-24 h-24 pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity duration-500" style={{background:'conic-gradient(from 180deg at 50% 50%, rgba(255,255,255,0.25), transparent 60%)'}}></div>
+              <h3 className="text-4xl tracking-wider mb-8 group-hover:text-white transition-colors duration-300">Casos de éxito</h3>
+              <p className="text-gray-400 leading-relaxed text-xl group-hover:text-gray-200 transition-colors duration-300">
                 Próximamente compartiremos proyectos destacados y resultados obtenidos junto a nuestros clientes.
               </p>
             </div>
           </div>
 
-          <div className="relative p-10 bg-black border border-gray-800 hover:border-white transition-colors duration-300">
-            <div className="absolute -top-0.5 -left-0.5 w-24 h-24 pointer-events-none opacity-60" style={{background:'conic-gradient(from 180deg at 50% 50%, rgba(255,255,255,0.25), transparent 60%)'}}></div>
-            <h3 className="text-3xl tracking-wider mb-5">Áreas principales de la empresa</h3>
-            <ul className="list-disc list-inside text-gray-400 space-y-2 text-lg">
-              <li><span className="text-white">Marketing Digital</span></li>
-              <li>
-                <span className="text-white">Desarrollo de páginas web</span>
-              </li>
-            </ul>
+          <div id="areas-principales" className="group relative p-12 bg-black border border-gray-800 hover:border-white transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-white/5">
+            <div className="absolute -top-0.5 -left-0.5 w-24 h-24 pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity duration-500" style={{background:'conic-gradient(from 180deg at 50% 50%, rgba(255,255,255,0.25), transparent 60%)'}}></div>
+            <h3 className="text-4xl tracking-wider mb-8 group-hover:text-white transition-colors duration-300">Áreas principales de la empresa</h3>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="group-hover:text-gray-200 transition-colors duration-300">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-3 h-3 bg-white rounded-full"></div>
+                  <span className="text-2xl text-white font-light">Marketing Digital</span>
+                </div>
+                <p className="text-gray-400 text-lg ml-7">Estrategias creativas y campañas 360°</p>
+              </div>
+              <div className="group-hover:text-gray-200 transition-colors duration-300">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-3 h-3 bg-white rounded-full"></div>
+                  <span className="text-2xl text-white font-light">Desarrollo de páginas web</span>
+                </div>
+                <p className="text-gray-400 text-lg ml-7">Sitios web funcionales y optimizados</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
