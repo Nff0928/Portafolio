@@ -81,9 +81,15 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <div className="text-2xl font-light tracking-widest">
-              PORTFOLIO DUAL
-            </div>
+            <div className="relative inline-grid grid-cols-2 gap-x-0 gap-y-0 md:gap-x-0.5 md:gap-y-0 text-xl md:text-2xl font-black uppercase leading-none select-none">
+                <div className="flex items-center justify-center"><span className="text-neutral-400 tracking-tighter drop-shadow-sm">P</span></div>
+                <div className="flex items-center justify-center"><span className="text-neutral-400 tracking-tighter drop-shadow-sm">I</span></div>
+                <div className="flex items-center justify-center"><span className="text-neutral-400 tracking-tighter drop-shadow-sm">X</span></div>
+                <div className="flex items-center justify-center"><span className="text-neutral-400 tracking-tighter drop-shadow-sm">O</span></div>
+                <div className="flex items-center justify-center"><span className="text-neutral-400 tracking-tighter drop-shadow-sm">R</span></div>
+                <div className="flex items-center justify-center"><span className="text-neutral-400 tracking-tighter drop-shadow-sm">A</span></div>
+             </div>
+			
 
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-12">
@@ -209,7 +215,7 @@ const Home = () => {
                   </div>
                   <div>
                     <h3 className="text-4xl tracking-wider mb-2 group-hover:text-white transition-colors duration-300">Nicolás Fonseca</h3>
-                    <p className="text-lg text-gray-400 group-hover:text-gray-200 transition-colors duration-300">Especialista en Páginas Web y Analítica de Datos</p>
+                    <p className="text-lg text-gray-400 group-hover:text-gray-200 transition-colors duration-300">Web Pages and Data Analytics Specialist</p>
                   </div>
                 </div>
                 <p className="text-gray-400 group-hover:text-gray-200 leading-relaxed text-xl transition-colors duration-300">
@@ -251,37 +257,7 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 mb-20">
-            <div id="contacto" className="group relative p-12 bg-black border border-gray-800 hover:border-white transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-white/5">
-              <div className="absolute -top-0.5 -left-0.5 w-24 h-24 pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity duration-500" style={{background:'conic-gradient(from 180deg at 50% 50%, rgba(255,255,255,0.25), transparent 60%)'}}></div>
-              <h3 className="text-4xl tracking-wider mb-8 group-hover:text-white transition-colors duration-300">Contactos</h3>
-              <div className="space-y-6 text-gray-400 text-lg">
-                <div className="group-hover:text-gray-200 transition-colors duration-300">
-                  <p className="text-gray-500 uppercase text-sm mb-2">Email Fabiana:</p>
-                  <p className="text-xl">fabiana@brandstrategist.com</p>
-                </div>
-                <div className="group-hover:text-gray-200 transition-colors duration-300">
-                  <p className="text-gray-500 uppercase text-sm mb-2">Email Nicolás:</p>
-                  <p className="text-xl">nicolas.fonseca0928@gmail.com</p>
-                </div>
-                <div className="group-hover:text-gray-200 transition-colors duration-300">
-                  <p className="text-gray-500 uppercase text-sm mb-2">LinkedIn Fabiana:</p>
-                  <a href="https://www.linkedin.com/in/fabiana-luengas-beltr%C3%A1n/" target="_blank" rel="noopener noreferrer" className="text-xl underline hover:text-white transition-colors duration-300">Ver perfil</a>
-                </div>
-                <div className="group-hover:text-gray-200 transition-colors duration-300">
-                  <p className="text-gray-500 uppercase text-sm mb-2">LinkedIn Nicolás:</p>
-                  <a href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile" target="_blank" rel="noopener noreferrer" className="text-xl underline hover:text-white transition-colors duration-300">Ver perfil</a>
-                </div>
-              </div>
-            </div>
-            <div className="group relative p-12 bg-black border border-gray-800 hover:border-white transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-white/5">
-              <div className="absolute -top-0.5 -left-0.5 w-24 h-24 pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity duration-500" style={{background:'conic-gradient(from 180deg at 50% 50%, rgba(255,255,255,0.25), transparent 60%)'}}></div>
-              <h3 className="text-4xl tracking-wider mb-8 group-hover:text-white transition-colors duration-300">Casos de éxito</h3>
-              <p className="text-gray-400 leading-relaxed text-xl group-hover:text-gray-200 transition-colors duration-300">
-                Próximamente compartiremos proyectos destacados y resultados obtenidos junto a nuestros clientes.
-              </p>
-            </div>
-          </div>
+          
 
           <div id="areas-principales" className="group relative p-12 bg-black border border-gray-800 hover:border-white transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-white/5">
             <div className="absolute -top-0.5 -left-0.5 w-24 h-24 pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity duration-500" style={{background:'conic-gradient(from 180deg at 50% 50%, rgba(255,255,255,0.25), transparent 60%)'}}></div>

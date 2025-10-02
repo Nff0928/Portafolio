@@ -510,7 +510,7 @@ const DualPortfolio = ({ initialProfile = 'fabiana' }) => {
             {currentProfile === 'fabiana' ? (
               <>
                 <div className="text-center">
-                  <div className="text-6xl font-thin mb-4">7+</div>
+                  <div className="text-6xl font-thin mb-4">5+</div>
                   <p className="text-sm tracking-widest uppercase text-gray-600">Años de Experiencia</p>
                 </div>
                 <div className="text-center">
