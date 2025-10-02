@@ -1,11 +1,57 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, Send, Mail, User, MessageSquare } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 const Home = () => {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      // Configuración de EmailJS - necesitarás reemplazar estos valores
+      const serviceId = 'service_t1wlvcg'; // Tu Service ID
+      const templateId = 'template_594ca7a'; // Tu Template ID
+      const publicKey = 'f5s0aP9TZCf0SH_lx'; // Tu Public Key
+
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        to_email: 'nicolas.fonseca0928@gmail.com' // Email donde quieres recibir los mensajes
+      };
+
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      console.error('Error sending email:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const menuItems = [
     { 
@@ -41,7 +87,7 @@ const Home = () => {
 
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-12">
-              {menuItems.map((item, idx) => (
+              {menuItems.map((item, idx) => ( 
                 <div 
                   key={idx} 
                   className="relative group"
@@ -255,6 +301,132 @@ const Home = () => {
                 </div>
                 <p className="text-gray-400 text-lg ml-7">Sitios web funcionales y optimizados</p>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Formulario de Contacto */}
+      <section className="py-32 px-6 lg:px-12 bg-gradient-to-b from-gray-900 to-black">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl md:text-6xl font-thin tracking-widest mb-8 text-center bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">CONTÁCTANOS</h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-transparent via-white to-transparent mx-auto mb-8"></div>
+            <p className="text-center text-gray-400 mb-8 tracking-wide text-xl max-w-3xl mx-auto leading-relaxed">¿Listo para impulsar tu marca? Conversemos sobre tu proyecto</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12">
+            {/* Información de contacto */}
+            <div className="space-y-8">
+              <div className="group p-8 bg-black border border-gray-800 hover:border-white transition-all duration-500">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-gray-700 to-gray-900 border border-white flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <Mail size={20} />
+                  </div>
+                  <h3 className="text-2xl tracking-wider">Email</h3>
+                </div>
+                <p className="text-gray-400 text-lg">fabiana@brandstrategist.com</p>
+                <p className="text-gray-400 text-lg">nicolas.fonseca0928@gmail.com</p>
+              </div>
+
+              <div className="group p-8 bg-black border border-gray-800 hover:border-white transition-all duration-500">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-gray-700 to-gray-900 border border-white flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <MessageSquare size={20} />
+                  </div>
+                  <h3 className="text-2xl tracking-wider">Respuesta</h3>
+                </div>
+                <p className="text-gray-400 text-lg">Te responderemos en menos de 24 horas</p>
+              </div>
+            </div>
+
+            {/* Formulario */}
+            <div className="group p-8 bg-black border border-gray-800 hover:border-white transition-all duration-500">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                    Nombre completo
+                  </label>
+                  <div className="relative">
+                    <User size={20} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full pl-12 pr-4 py-3 bg-gray-900 border border-gray-700 text-white placeholder-gray-500 focus:border-white focus:outline-none transition-colors duration-300"
+                      placeholder="Tu nombre completo"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                    Email
+                  </label>
+                  <div className="relative">
+                    <Mail size={20} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full pl-12 pr-4 py-3 bg-gray-900 border border-gray-700 text-white placeholder-gray-500 focus:border-white focus:outline-none transition-colors duration-300"
+                      placeholder="tu@email.com"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                    Mensaje
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    required
+                    rows={6}
+                    className="w-full px-4 py-3 bg-gray-900 border border-gray-700 text-white placeholder-gray-500 focus:border-white focus:outline-none transition-colors duration-300 resize-none"
+                    placeholder="Cuéntanos sobre tu proyecto, objetivos y cómo podemos ayudarte..."
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-white text-black py-4 px-6 font-medium tracking-wider uppercase hover:bg-gray-200 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <div className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
+                      Enviando...
+                    </>
+                  ) : (
+                    <>
+                      <Send size={20} />
+                      Enviar mensaje
+                    </>
+                  )}
+                </button>
+
+                {submitStatus === 'success' && (
+                  <div className="p-4 bg-green-900 border border-green-700 text-green-300 text-center">
+                    ¡Mensaje enviado exitosamente! Te contactaremos pronto.
+                  </div>
+                )}
+
+                {submitStatus === 'error' && (
+                  <div className="p-4 bg-red-900 border border-red-700 text-red-300 text-center">
+                    Error al enviar el mensaje. Por favor, inténtalo de nuevo.
+                  </div>
+                )}
+              </form>
             </div>
           </div>
         </div>
