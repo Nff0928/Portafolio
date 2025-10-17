@@ -76,6 +76,7 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-black text-white font-sans">
+      <a href="#home" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:bg-white focus:text-black focus:px-3 focus:py-2">Saltar al contenido</a>
       {/* Navigation */}
       <nav className="fixed w-full top-0 z-50 bg-black bg-opacity-95 backdrop-blur-sm border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
@@ -171,10 +172,13 @@ const Home = () => {
 
       <section id="home" className="pt-32 px-6 lg:px-12">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
-            <h2 id="ceos" className="text-6xl md:text-7xl font-thin tracking-widest mb-8 text-center bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">CONOCE A NUESTROS CEOs</h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-transparent via-white to-transparent mx-auto mb-8"></div>
-            <p className="text-center text-gray-400 mb-8 tracking-wide text-xl max-w-3xl mx-auto leading-relaxed">Selecciona un perfil para explorar su trayectoria y servicios</p>
+          <div className="text-center mb-16">
+            <h1 className="text-5xl md:text-7xl font-thin tracking-widest mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">Estrategia de marca + desarrollo web que convierte</h1>
+            <p className="text-gray-400 mb-10 tracking-wide text-xl max-w-3xl mx-auto leading-relaxed">Diseñamos marcas memorables y sitios web orientados a resultados: más leads, mejores conversiones y medición real.</p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a href="/planes" className="bg-white text-black py-3 px-6 font-medium tracking-wider uppercase hover:bg-gray-200 transition-colors duration-300">Ver planes</a>
+              <a href="#contacto" className="border border-gray-800 text-white py-3 px-6 font-medium tracking-wider uppercase hover:border-white transition-colors duration-300">Solicitar cotización</a>
+            </div>
           </div>
           <div className="grid md:grid-cols-2 gap-12">
             <button
@@ -215,7 +219,7 @@ const Home = () => {
                   </div>
                   <div>
                     <h3 className="text-4xl tracking-wider mb-2 group-hover:text-white transition-colors duration-300">Nicolás Fonseca</h3>
-                    <p className="text-lg text-gray-400 group-hover:text-gray-200 transition-colors duration-300">Web Pages and Data Analytics Specialist</p>
+                    <p className="text-lg text-gray-400 group-hover:text-gray-200 transition-colors duration-300">Especialista en Páginas Web y Analítica de Datos</p>
                   </div>
                 </div>
                 <p className="text-gray-400 group-hover:text-gray-200 leading-relaxed text-xl transition-colors duration-300">
@@ -232,6 +236,60 @@ const Home = () => {
 
       {/* Separador visual */}
       <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-800 to-transparent"></div>
+      
+      {/* Planes Resumen */}
+      <section id="planes" className="py-24 px-6 lg:px-12">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-5xl md:text-6xl font-thin tracking-widest mb-12 text-center bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">PLANES</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <article className="group p-8 bg-black border border-gray-800 hover:border-white transition-all duration-500">
+              <div className="flex items-start justify-between mb-3">
+                <span className="inline-block px-3 py-1 text-xs tracking-wider uppercase bg-white/5 border border-gray-800 text-gray-400 rounded-full">Base</span>
+                <span className="text-sm text-gray-500">5 días</span>
+              </div>
+              <h3 className="text-2xl font-semibold">$800.000</h3>
+              <ul className="mt-4 ml-5 list-disc text-gray-400 space-y-1">
+                <li>Landing 1–3 secciones</li>
+                <li>Responsive + SEO básico</li>
+                <li>Textos con IA</li>
+              </ul>
+              <div className="mt-6 flex gap-3">
+                <a href="/planes" className="bg-white text-black py-2 px-4 font-medium tracking-wider uppercase hover:bg-gray-200 transition-colors duration-300">Ver detalles</a>
+              </div>
+            </article>
+            <article className="group p-8 bg-black border border-gray-800 hover:border-white transition-all duration-500">
+              <div className="flex items-start justify-between mb-3">
+                <span className="inline-block px-3 py-1 text-xs tracking-wider uppercase bg-white/5 border border-gray-800 text-gray-400 rounded-full">Pro</span>
+                <span className="text-sm text-gray-500">10–14 días</span>
+              </div>
+              <h3 className="text-2xl font-semibold">$1.500.000</h3>
+              <ul className="mt-4 ml-5 list-disc text-gray-400 space-y-1">
+                <li>Todo Base</li>
+                <li>Chatbot IA (WhatsApp/Web)</li>
+                <li>Form conectado (Sheets/Email)</li>
+              </ul>
+              <div className="mt-6 flex gap-3">
+                <a href="/planes" className="bg-white text-black py-2 px-4 font-medium tracking-wider uppercase hover:bg-gray-200 transition-colors duration-300">Ver detalles</a>
+              </div>
+            </article>
+            <article className="group p-8 bg-black border border-gray-800 hover:border-white transition-all duration-500">
+              <div className="flex items-start justify-between mb-3">
+                <span className="inline-block px-3 py-1 text-xs tracking-wider uppercase bg-white/5 border border-gray-800 text-gray-400 rounded-full">Premium</span>
+                <span className="text-sm text-gray-500">3–4 semanas</span>
+              </div>
+              <h3 className="text-2xl font-semibold">$2.500.000</h3>
+              <ul className="mt-4 ml-5 list-disc text-gray-400 space-y-1">
+                <li>Todo Pro</li>
+                <li>Dashboard + IA</li>
+                <li>Hosting + dominio + SSL</li>
+              </ul>
+              <div className="mt-6 flex gap-3">
+                <a href="/planes" className="bg-white text-black py-2 px-4 font-medium tracking-wider uppercase hover:bg-gray-200 transition-colors duration-300">Ver detalles</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
       
       <section id="empresa" className="py-32 px-6 lg:px-12 bg-gradient-to-b from-black to-gray-900">
         <div className="max-w-7xl mx-auto">
@@ -283,7 +341,7 @@ const Home = () => {
       </section>
 
       {/* Formulario de Contacto */}
-      <section className="py-32 px-6 lg:px-12 bg-gradient-to-b from-gray-900 to-black">
+      <section id="contacto" className="py-32 px-6 lg:px-12 bg-gradient-to-b from-gray-900 to-black">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-5xl md:text-6xl font-thin tracking-widest mb-8 text-center bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">CONTÁCTANOS</h2>

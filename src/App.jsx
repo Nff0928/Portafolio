@@ -200,6 +200,7 @@ const DualPortfolio = ({ initialProfile = 'fabiana' }) => {
 
   return (
     <div className="min-h-screen bg-black text-white font-sans">
+      <a href="#about" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:bg-white focus:text-black focus:px-3 focus:py-2">Saltar al contenido</a>
       {/* Profile pages render only personal content below */}
 
       {/* Navigation */}
@@ -308,6 +309,8 @@ const DualPortfolio = ({ initialProfile = 'fabiana' }) => {
           </p>
         </div>
       </section>
+
+      
 
       {/* About Section */}
       <section id="about" className="py-32 px-6 lg:px-12">
