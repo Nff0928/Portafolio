@@ -290,7 +290,7 @@ const Home = () => {
               </div>
               
               {/* PIXORA Text */}
-              <h1 className="text-6xl md:text-8xl font-bold tracking-widest uppercase mb-4" style={{
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold tracking-widest uppercase mb-4 px-4" style={{
                 background: 'linear-gradient(135deg, #C0C0C0 0%, #E5E5E5 50%, #A8A8A8 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
@@ -301,38 +301,38 @@ const Home = () => {
               </h1>
               
               {/* Tagline */}
-              <p className="text-lg md:text-xl font-light tracking-wide uppercase text-gray-400 mt-2">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl font-light tracking-wide uppercase text-gray-400 mt-2 px-4 text-center">
                 DIGITAL BRANDING & WEB DEVELOPMENT
               </p>
             </div>
 
             {/* Main Content */}
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-6xl font-thin tracking-widest mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">Estrategia de marca + desarrollo web que convierte</h2>
-              <p className="text-gray-300 mb-10 tracking-wide text-xl max-w-3xl mx-auto leading-relaxed">Diseñamos marcas memorables y sitios web orientados a resultados: más leads, mejores conversiones y medición real.</p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="/planes" className="bg-white text-black py-3 px-6 font-medium tracking-wider uppercase hover:bg-gray-200 transition-colors duration-300">Ver planes</a>
-                <a href="#contacto" className="border border-gray-400 text-white py-3 px-6 font-medium tracking-wider uppercase hover:border-white hover:bg-white/10 transition-colors duration-300">Solicitar cotización</a>
+            <div className="text-center mb-16 px-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-thin tracking-widest mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent leading-tight">Estrategia de marca + desarrollo web que convierte</h2>
+              <p className="text-gray-300 mb-10 tracking-wide text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed px-2">Diseñamos marcas memorables y sitios web orientados a resultados: más leads, mejores conversiones y medición real.</p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 px-4">
+                <a href="/planes" className="w-full sm:w-auto bg-white text-black py-3 px-6 font-medium tracking-wider uppercase hover:bg-gray-200 transition-colors duration-300 text-center">Ver planes</a>
+                <a href="#contacto" className="w-full sm:w-auto border border-gray-400 text-white py-3 px-6 font-medium tracking-wider uppercase hover:border-white hover:bg-white/10 transition-colors duration-300 text-center">Solicitar cotización</a>
               </div>
             </div>
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 px-4">
             <button
               onClick={() => navigate('/fabiana')}
-              className={`group relative overflow-hidden p-12 text-left bg-gradient-to-br from-gray-950 to-black border border-gray-800 hover:border-white transition-all duration-700 cursor-pointer hover:-translate-y-2 hover:shadow-2xl hover:shadow-white/10`}
+              className={`group relative overflow-hidden p-6 md:p-12 text-left bg-gradient-to-br from-gray-950 to-black border border-gray-800 hover:border-white transition-all duration-700 cursor-pointer hover:-translate-y-2 hover:shadow-2xl hover:shadow-white/10`}
               aria-label="Ver perfil de Fabiana"
             >
               <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{ background: 'radial-gradient(600px circle at var(--x,50%) var(--y,50%), rgba(255,255,255,0.12), transparent 40%)' }} />
               <div className="relative z-10">
-                <div className="flex items-center gap-6 mb-8">
-                  <div className="w-24 h-24 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 border-2 border-white flex items-center justify-center group-hover:scale-110 transition-transform duration-500 group-hover:border-gray-300">
-                    <span className="text-4xl font-light">FL</span>
+                <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6 mb-6 md:mb-8">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 border-2 border-white flex items-center justify-center group-hover:scale-110 transition-transform duration-500 group-hover:border-gray-300 flex-shrink-0">
+                    <span className="text-2xl sm:text-3xl md:text-4xl font-light">FL</span>
                   </div>
-                  <div>
-                    <h3 className="text-4xl tracking-wider mb-2 group-hover:text-white transition-colors duration-300">Fabiana Luengas</h3>
-                    <p className="text-lg text-gray-400 group-hover:text-gray-200 transition-colors duration-300">Brand Stylist & Creative Strategist</p>
+                  <div className="text-center sm:text-left">
+                    <h3 className="text-2xl sm:text-3xl md:text-4xl tracking-wider mb-2 group-hover:text-white transition-colors duration-300">Fabiana Luengas</h3>
+                    <p className="text-sm sm:text-base md:text-lg text-gray-400 group-hover:text-gray-200 transition-colors duration-300">Brand Stylist & Creative Strategist</p>
                   </div>
                 </div>
-                <p className="text-gray-400 group-hover:text-gray-200 leading-relaxed text-xl transition-colors duration-300">
+                <p className="text-gray-400 group-hover:text-gray-200 leading-relaxed text-base sm:text-lg md:text-xl transition-colors duration-300 text-center sm:text-left">
                   Estratega digital con enfoque 360°, dirección creativa y crecimiento de marca.
                 </p>
                 <div className="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -343,21 +343,21 @@ const Home = () => {
 
             <button
               onClick={() => navigate('/nicolas')}
-              className={`group relative overflow-hidden p-12 text-left bg-gradient-to-br from-gray-950 to-black border border-gray-800 hover:border-white transition-all duration-700 cursor-pointer hover:-translate-y-2 hover:shadow-2xl hover:shadow-white/10`}
+              className={`group relative overflow-hidden p-6 md:p-12 text-left bg-gradient-to-br from-gray-950 to-black border border-gray-800 hover:border-white transition-all duration-700 cursor-pointer hover:-translate-y-2 hover:shadow-2xl hover:shadow-white/10`}
               aria-label="Ver perfil de Nicolás"
             >
               <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{ background: 'radial-gradient(600px circle at var(--x,50%) var(--y,50%), rgba(255,255,255,0.12), transparent 40%)' }} />
               <div className="relative z-10">
-                <div className="flex items-center gap-6 mb-8">
-                  <div className="w-24 h-24 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 border-2 border-white flex items-center justify-center group-hover:scale-110 transition-transform duration-500 group-hover:border-gray-300">
-                    <span className="text-4xl font-light">NF</span>
+                <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6 mb-6 md:mb-8">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 border-2 border-white flex items-center justify-center group-hover:scale-110 transition-transform duration-500 group-hover:border-gray-300 flex-shrink-0">
+                    <span className="text-2xl sm:text-3xl md:text-4xl font-light">NF</span>
                   </div>
-                  <div>
-                    <h3 className="text-4xl tracking-wider mb-2 group-hover:text-white transition-colors duration-300">Nicolás Fonseca</h3>
-                    <p className="text-lg text-gray-400 group-hover:text-gray-200 transition-colors duration-300">Especialista en Páginas Web y Analítica de Datos</p>
+                  <div className="text-center sm:text-left">
+                    <h3 className="text-2xl sm:text-3xl md:text-4xl tracking-wider mb-2 group-hover:text-white transition-colors duration-300">Nicolás Fonseca</h3>
+                    <p className="text-sm sm:text-base md:text-lg text-gray-400 group-hover:text-gray-200 transition-colors duration-300">Especialista en Páginas Web y Analítica de Datos</p>
                   </div>
                 </div>
-                <p className="text-gray-400 group-hover:text-gray-200 leading-relaxed text-xl transition-colors duration-300">
+                <p className="text-gray-400 group-hover:text-gray-200 leading-relaxed text-base sm:text-lg md:text-xl transition-colors duration-300 text-center sm:text-left">
                   Desarrollo web orientado a resultados con integración de analítica y calidad.
                 </p>
                 <div className="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -374,20 +374,20 @@ const Home = () => {
       <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-800 to-transparent"></div>
       
       {/* Planes Resumen */}
-      <section id="planes" className="py-24 px-6 lg:px-12">
+      <section id="planes" className="py-16 md:py-24 px-4 sm:px-6 lg:px-12">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-5xl md:text-6xl font-thin tracking-widest mb-8 text-center bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">PLANES</h2>
-          <p className="text-center text-gray-400 mb-16 text-lg max-w-3xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-thin tracking-widest mb-6 md:mb-8 text-center bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent px-4">PLANES</h2>
+          <p className="text-center text-gray-400 mb-12 md:mb-16 text-base sm:text-lg max-w-3xl mx-auto px-4">
             Soluciones digitales integrales que combinan estrategia de marca y desarrollo web para impulsar tu negocio
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <article className="group p-8 bg-black border border-gray-800 hover:border-white transition-all duration-500">
-              <div className="flex items-start justify-between mb-4">
-                <span className="inline-block px-3 py-1 text-xs tracking-wider uppercase bg-white/5 border border-gray-800 text-gray-400 rounded-full">Básico</span>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            <article className="group p-6 md:p-8 bg-black border border-gray-800 hover:border-white transition-all duration-500">
+              <div className="flex flex-col sm:flex-row sm:items-start justify-between mb-4 gap-2">
+                <span className="inline-block px-3 py-1 text-xs tracking-wider uppercase bg-white/5 border border-gray-800 text-gray-400 rounded-full w-fit">Básico</span>
                 <span className="text-sm text-gray-500">2-3 semanas</span>
               </div>
-              <h3 className="text-3xl font-bold mb-2">$600.000</h3>
-              <h4 className="text-lg text-gray-300 mb-4 font-light">Presencia Digital Inicial</h4>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-2">$600.000</h3>
+              <h4 className="text-base sm:text-lg text-gray-300 mb-4 font-light">Presencia Digital Inicial</h4>
               <p className="text-sm text-gray-400 mb-6">Ideal para empresas que necesitan una presencia digital profesional y funcional.</p>
               <ul className="mt-4 space-y-2 text-gray-400 text-sm">
                 <li className="flex items-start gap-2">
@@ -411,18 +411,18 @@ const Home = () => {
                   <span>Hosting y dominio 1 año</span>
                 </li>
               </ul>
-              <div className="mt-6 flex gap-3">
-                <a href="/fabiana" className="bg-white text-black py-2 px-4 font-medium tracking-wider uppercase hover:bg-gray-200 transition-colors duration-300 text-sm">Estrategia</a>
-                <a href="/nicolas" className="border border-gray-400 text-white py-2 px-4 font-medium tracking-wider uppercase hover:border-white hover:bg-white/10 transition-colors duration-300 text-sm">Desarrollo</a>
+              <div className="mt-6 flex flex-col sm:flex-row gap-3">
+                <a href="/fabiana" className="w-full sm:w-auto bg-white text-black py-2 px-4 font-medium tracking-wider uppercase hover:bg-gray-200 transition-colors duration-300 text-sm text-center">Estrategia</a>
+                <a href="/nicolas" className="w-full sm:w-auto border border-gray-400 text-white py-2 px-4 font-medium tracking-wider uppercase hover:border-white hover:bg-white/10 transition-colors duration-300 text-sm text-center">Desarrollo</a>
               </div>
             </article>
-            <article className="group p-8 bg-black border border-gray-800 hover:border-white transition-all duration-500">
-              <div className="flex items-start justify-between mb-4">
-                <span className="inline-block px-3 py-1 text-xs tracking-wider uppercase bg-white/5 border border-gray-800 text-gray-400 rounded-full">Avanzado</span>
+            <article className="group p-6 md:p-8 bg-black border border-gray-800 hover:border-white transition-all duration-500">
+              <div className="flex flex-col sm:flex-row sm:items-start justify-between mb-4 gap-2">
+                <span className="inline-block px-3 py-1 text-xs tracking-wider uppercase bg-white/5 border border-gray-800 text-gray-400 rounded-full w-fit">Avanzado</span>
                 <span className="text-sm text-gray-500">4-6 semanas</span>
               </div>
-              <h3 className="text-3xl font-bold mb-2">$1.200.000</h3>
-              <h4 className="text-lg text-gray-300 mb-4 font-light">Solución Digital Completa</h4>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-2">$1.200.000</h3>
+              <h4 className="text-base sm:text-lg text-gray-300 mb-4 font-light">Solución Digital Completa</h4>
               <p className="text-sm text-gray-400 mb-6">Para empresas en crecimiento que necesitan funcionalidades avanzadas y medición de resultados.</p>
               <ul className="mt-4 space-y-2 text-gray-400 text-sm">
                 <li className="flex items-start gap-2">
@@ -450,18 +450,18 @@ const Home = () => {
                   <span>Optimización de velocidad</span>
                 </li>
               </ul>
-              <div className="mt-6 flex gap-3">
-                <a href="/fabiana" className="bg-white text-black py-2 px-4 font-medium tracking-wider uppercase hover:bg-gray-200 transition-colors duration-300 text-sm">Estrategia</a>
-                <a href="/nicolas" className="border border-gray-400 text-white py-2 px-4 font-medium tracking-wider uppercase hover:border-white hover:bg-white/10 transition-colors duration-300 text-sm">Desarrollo</a>
+              <div className="mt-6 flex flex-col sm:flex-row gap-3">
+                <a href="/fabiana" className="w-full sm:w-auto bg-white text-black py-2 px-4 font-medium tracking-wider uppercase hover:bg-gray-200 transition-colors duration-300 text-sm text-center">Estrategia</a>
+                <a href="/nicolas" className="w-full sm:w-auto border border-gray-400 text-white py-2 px-4 font-medium tracking-wider uppercase hover:border-white hover:bg-white/10 transition-colors duration-300 text-sm text-center">Desarrollo</a>
               </div>
             </article>
-            <article className="group p-8 bg-black border border-gray-800 hover:border-white transition-all duration-500">
-              <div className="flex items-start justify-between mb-4">
-                <span className="inline-block px-3 py-1 text-xs tracking-wider uppercase bg-white/5 border border-gray-800 text-gray-400 rounded-full">Empresarial</span>
+            <article className="group p-6 md:p-8 bg-black border border-gray-800 hover:border-white transition-all duration-500">
+              <div className="flex flex-col sm:flex-row sm:items-start justify-between mb-4 gap-2">
+                <span className="inline-block px-3 py-1 text-xs tracking-wider uppercase bg-white/5 border border-gray-800 text-gray-400 rounded-full w-fit">Empresarial</span>
                 <span className="text-sm text-gray-500">8-12 semanas</span>
               </div>
-              <h3 className="text-3xl font-bold mb-2">$2.500.000</h3>
-              <h4 className="text-lg text-gray-300 mb-4 font-light">Solución Empresarial</h4>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-2">$2.500.000</h3>
+              <h4 className="text-base sm:text-lg text-gray-300 mb-4 font-light">Solución Empresarial</h4>
               <p className="text-sm text-gray-400 mb-6">Para empresas establecidas que necesitan soluciones robustas y escalables.</p>
               <ul className="mt-4 space-y-2 text-gray-400 text-sm">
                 <li className="flex items-start gap-2">
@@ -489,9 +489,9 @@ const Home = () => {
                   <span>Mantenimiento 6 meses</span>
                 </li>
               </ul>
-              <div className="mt-6 flex gap-3">
-                <a href="/fabiana" className="bg-white text-black py-2 px-4 font-medium tracking-wider uppercase hover:bg-gray-200 transition-colors duration-300 text-sm">Estrategia</a>
-                <a href="/nicolas" className="border border-gray-400 text-white py-2 px-4 font-medium tracking-wider uppercase hover:border-white hover:bg-white/10 transition-colors duration-300 text-sm">Desarrollo</a>
+              <div className="mt-6 flex flex-col sm:flex-row gap-3">
+                <a href="/fabiana" className="w-full sm:w-auto bg-white text-black py-2 px-4 font-medium tracking-wider uppercase hover:bg-gray-200 transition-colors duration-300 text-sm text-center">Estrategia</a>
+                <a href="/nicolas" className="w-full sm:w-auto border border-gray-400 text-white py-2 px-4 font-medium tracking-wider uppercase hover:border-white hover:bg-white/10 transition-colors duration-300 text-sm text-center">Desarrollo</a>
               </div>
             </article>
           </div>
