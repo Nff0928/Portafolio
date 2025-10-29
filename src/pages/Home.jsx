@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Menu, X, ChevronDown, Send, Mail, User, MessageSquare } from 'lucide-react';
 import emailjs from '@emailjs/browser';
+import PixoraLogo from '../components/PixoraLogo';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -82,14 +83,7 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <div className="relative inline-grid grid-cols-2 gap-x-0 gap-y-0 md:gap-x-0.5 md:gap-y-0 text-xl md:text-2xl font-black uppercase leading-none select-none">
-                <div className="flex items-center justify-center"><span className="text-neutral-400 tracking-tighter drop-shadow-sm">P</span></div>
-                <div className="flex items-center justify-center"><span className="text-neutral-400 tracking-tighter drop-shadow-sm">I</span></div>
-                <div className="flex items-center justify-center"><span className="text-neutral-400 tracking-tighter drop-shadow-sm">X</span></div>
-                <div className="flex items-center justify-center"><span className="text-neutral-400 tracking-tighter drop-shadow-sm">O</span></div>
-                <div className="flex items-center justify-center"><span className="text-neutral-400 tracking-tighter drop-shadow-sm">R</span></div>
-                <div className="flex items-center justify-center"><span className="text-neutral-400 tracking-tighter drop-shadow-sm">A</span></div>
-             </div>
+            <PixoraLogo size="small" showTagline={false} />
 			
 
             {/* Desktop Menu */}
@@ -170,16 +164,157 @@ const Home = () => {
         )}
       </nav>
 
-      <section id="home" className="pt-32 px-6 lg:px-12">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h1 className="text-5xl md:text-7xl font-thin tracking-widest mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">Estrategia de marca + desarrollo web que convierte</h1>
-            <p className="text-gray-400 mb-10 tracking-wide text-xl max-w-3xl mx-auto leading-relaxed">Diseñamos marcas memorables y sitios web orientados a resultados: más leads, mejores conversiones y medición real.</p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a href="/planes" className="bg-white text-black py-3 px-6 font-medium tracking-wider uppercase hover:bg-gray-200 transition-colors duration-300">Ver planes</a>
-              <a href="#contacto" className="border border-gray-800 text-white py-3 px-6 font-medium tracking-wider uppercase hover:border-white transition-colors duration-300">Solicitar cotización</a>
+      {/* Hero Section with Background */}
+      <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Background Image Layer */}
+        <div 
+          className="absolute inset-0 z-0"
+          style={{
+            background: 'linear-gradient(135deg, #0A101C 0%, #0F1625 50%, #0A101C 100%)',
+            backgroundImage: 'radial-gradient(circle at 50% 50%, rgba(192, 192, 192, 0.05) 0%, transparent 70%)'
+          }}
+        >
+          {/* Logo Background Pattern */}
+          <div className="absolute inset-0 flex items-center justify-center opacity-10">
+            <div className="relative">
+              {/* Large Logo Symbol */}
+              <svg 
+                width="400" 
+                height="400" 
+                viewBox="0 0 60 60" 
+                className="text-silver-400"
+                fill="none"
+              >
+                <defs>
+                  <linearGradient id="heroLogoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#C0C0C0" />
+                    <stop offset="50%" stopColor="#E5E5E5" />
+                    <stop offset="100%" stopColor="#A8A8A8" />
+                  </linearGradient>
+                  <filter id="glow">
+                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                    <feMerge> 
+                      <feMergeNode in="coloredBlur"/>
+                      <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                  </filter>
+                </defs>
+                
+                {/* Main geometric shape */}
+                <path 
+                  d="M10 10 L10 50 L25 50 L35 40 L35 30 L25 30 L25 20 L35 20 L35 10 Z" 
+                  fill="url(#heroLogoGradient)"
+                  stroke="#B0B0B0"
+                  strokeWidth="1"
+                  filter="url(#glow)"
+                />
+                
+                {/* Arrow element */}
+                <path 
+                  d="M40 15 L50 15 L50 25 L45 25 L45 35 L40 35 Z" 
+                  fill="url(#heroLogoGradient)"
+                  stroke="#B0B0B0"
+                  strokeWidth="1"
+                  filter="url(#glow)"
+                />
+                
+                {/* Additional geometric accent */}
+                <circle 
+                  cx="45" 
+                  cy="45" 
+                  r="8" 
+                  fill="none" 
+                  stroke="url(#heroLogoGradient)" 
+                  strokeWidth="2"
+                  filter="url(#glow)"
+                />
+              </svg>
             </div>
           </div>
+          
+          {/* Decorative star in corner */}
+          <div className="absolute bottom-12 right-12 opacity-20">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C0C0C0" strokeWidth="1">
+              <path d="M12 2 L14.5 8.5 L21 11 L14.5 13.5 L12 20 L9.5 13.5 L3 11 L9.5 8.5 Z" />
+            </svg>
+          </div>
+        </div>
+
+        {/* Overlay for better text readability */}
+        <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/40 via-black/20 to-black/60"></div>
+
+        {/* Content Layer */}
+        <div className="relative z-20 w-full pt-32 px-6 lg:px-12">
+          <div className="max-w-7xl mx-auto">
+            {/* Hero Logo - Centered */}
+            <div className="flex flex-col items-center justify-center mb-16 pt-20">
+              <div className="mb-8">
+                <svg 
+                  width="120" 
+                  height="120" 
+                  viewBox="0 0 60 60" 
+                  className="text-silver-400"
+                  fill="none"
+                >
+                  <defs>
+                    <linearGradient id="mainLogoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#C0C0C0" />
+                      <stop offset="50%" stopColor="#E5E5E5" />
+                      <stop offset="100%" stopColor="#A8A8A8" />
+                    </linearGradient>
+                  </defs>
+                  
+                  <path 
+                    d="M10 10 L10 50 L25 50 L35 40 L35 30 L25 30 L25 20 L35 20 L35 10 Z" 
+                    fill="url(#mainLogoGradient)"
+                    stroke="#B0B0B0"
+                    strokeWidth="1"
+                  />
+                  
+                  <path 
+                    d="M40 15 L50 15 L50 25 L45 25 L45 35 L40 35 Z" 
+                    fill="url(#mainLogoGradient)"
+                    stroke="#B0B0B0"
+                    strokeWidth="1"
+                  />
+                  
+                  <circle 
+                    cx="45" 
+                    cy="45" 
+                    r="8" 
+                    fill="none" 
+                    stroke="url(#mainLogoGradient)" 
+                    strokeWidth="2"
+                  />
+                </svg>
+              </div>
+              
+              {/* PIXORA Text */}
+              <h1 className="text-6xl md:text-8xl font-bold tracking-widest uppercase mb-4" style={{
+                background: 'linear-gradient(135deg, #C0C0C0 0%, #E5E5E5 50%, #A8A8A8 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                textShadow: '0 0 20px rgba(192, 192, 192, 0.3)'
+              }}>
+                PIXORA
+              </h1>
+              
+              {/* Tagline */}
+              <p className="text-lg md:text-xl font-light tracking-wide uppercase text-gray-400 mt-2">
+                DIGITAL BRANDING & WEB DEVELOPMENT
+              </p>
+            </div>
+
+            {/* Main Content */}
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-6xl font-thin tracking-widest mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">Estrategia de marca + desarrollo web que convierte</h2>
+              <p className="text-gray-300 mb-10 tracking-wide text-xl max-w-3xl mx-auto leading-relaxed">Diseñamos marcas memorables y sitios web orientados a resultados: más leads, mejores conversiones y medición real.</p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="/planes" className="bg-white text-black py-3 px-6 font-medium tracking-wider uppercase hover:bg-gray-200 transition-colors duration-300">Ver planes</a>
+                <a href="#contacto" className="border border-gray-400 text-white py-3 px-6 font-medium tracking-wider uppercase hover:border-white hover:bg-white/10 transition-colors duration-300">Solicitar cotización</a>
+              </div>
+            </div>
           <div className="grid md:grid-cols-2 gap-12">
             <button
               onClick={() => navigate('/fabiana')}
@@ -231,6 +366,7 @@ const Home = () => {
               </div>
             </button>
           </div>
+          </div>
         </div>
       </section>
 
@@ -240,51 +376,122 @@ const Home = () => {
       {/* Planes Resumen */}
       <section id="planes" className="py-24 px-6 lg:px-12">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-5xl md:text-6xl font-thin tracking-widest mb-12 text-center bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">PLANES</h2>
+          <h2 className="text-5xl md:text-6xl font-thin tracking-widest mb-8 text-center bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">PLANES</h2>
+          <p className="text-center text-gray-400 mb-16 text-lg max-w-3xl mx-auto">
+            Soluciones digitales integrales que combinan estrategia de marca y desarrollo web para impulsar tu negocio
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <article className="group p-8 bg-black border border-gray-800 hover:border-white transition-all duration-500">
-              <div className="flex items-start justify-between mb-3">
-                <span className="inline-block px-3 py-1 text-xs tracking-wider uppercase bg-white/5 border border-gray-800 text-gray-400 rounded-full">Base</span>
-                <span className="text-sm text-gray-500">5 días</span>
+              <div className="flex items-start justify-between mb-4">
+                <span className="inline-block px-3 py-1 text-xs tracking-wider uppercase bg-white/5 border border-gray-800 text-gray-400 rounded-full">Básico</span>
+                <span className="text-sm text-gray-500">2-3 semanas</span>
               </div>
-              <h3 className="text-2xl font-semibold">$800.000</h3>
-              <ul className="mt-4 ml-5 list-disc text-gray-400 space-y-1">
-                <li>Landing 1–3 secciones</li>
-                <li>Responsive + SEO básico</li>
-                <li>Textos con IA</li>
+              <h3 className="text-3xl font-bold mb-2">$600.000</h3>
+              <h4 className="text-lg text-gray-300 mb-4 font-light">Presencia Digital Inicial</h4>
+              <p className="text-sm text-gray-400 mb-6">Ideal para empresas que necesitan una presencia digital profesional y funcional.</p>
+              <ul className="mt-4 space-y-2 text-gray-400 text-sm">
+                <li className="flex items-start gap-2">
+                  <span className="text-white mt-1">•</span>
+                  <span>Landing page 1-3 secciones</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-white mt-1">•</span>
+                  <span>Diseño responsive completo</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-white mt-1">•</span>
+                  <span>SEO básico optimizado</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-white mt-1">•</span>
+                  <span>Formulario de contacto</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-white mt-1">•</span>
+                  <span>Hosting y dominio 1 año</span>
+                </li>
               </ul>
               <div className="mt-6 flex gap-3">
-                <a href="/planes" className="bg-white text-black py-2 px-4 font-medium tracking-wider uppercase hover:bg-gray-200 transition-colors duration-300">Ver detalles</a>
+                <a href="/fabiana" className="bg-white text-black py-2 px-4 font-medium tracking-wider uppercase hover:bg-gray-200 transition-colors duration-300 text-sm">Estrategia</a>
+                <a href="/nicolas" className="border border-gray-400 text-white py-2 px-4 font-medium tracking-wider uppercase hover:border-white hover:bg-white/10 transition-colors duration-300 text-sm">Desarrollo</a>
               </div>
             </article>
             <article className="group p-8 bg-black border border-gray-800 hover:border-white transition-all duration-500">
-              <div className="flex items-start justify-between mb-3">
-                <span className="inline-block px-3 py-1 text-xs tracking-wider uppercase bg-white/5 border border-gray-800 text-gray-400 rounded-full">Pro</span>
-                <span className="text-sm text-gray-500">10–14 días</span>
+              <div className="flex items-start justify-between mb-4">
+                <span className="inline-block px-3 py-1 text-xs tracking-wider uppercase bg-white/5 border border-gray-800 text-gray-400 rounded-full">Avanzado</span>
+                <span className="text-sm text-gray-500">4-6 semanas</span>
               </div>
-              <h3 className="text-2xl font-semibold">$1.500.000</h3>
-              <ul className="mt-4 ml-5 list-disc text-gray-400 space-y-1">
-                <li>Todo Base</li>
-                <li>Chatbot IA (WhatsApp/Web)</li>
-                <li>Form conectado (Sheets/Email)</li>
+              <h3 className="text-3xl font-bold mb-2">$1.200.000</h3>
+              <h4 className="text-lg text-gray-300 mb-4 font-light">Solución Digital Completa</h4>
+              <p className="text-sm text-gray-400 mb-6">Para empresas en crecimiento que necesitan funcionalidades avanzadas y medición de resultados.</p>
+              <ul className="mt-4 space-y-2 text-gray-400 text-sm">
+                <li className="flex items-start gap-2">
+                  <span className="text-white mt-1">•</span>
+                  <span>Todo el plan Básico</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-white mt-1">•</span>
+                  <span>Sitio web completo (5-8 páginas)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-white mt-1">•</span>
+                  <span>Analítica Google Analytics 4</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-white mt-1">•</span>
+                  <span>Chatbot con IA</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-white mt-1">•</span>
+                  <span>Formularios conectados</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-white mt-1">•</span>
+                  <span>Optimización de velocidad</span>
+                </li>
               </ul>
               <div className="mt-6 flex gap-3">
-                <a href="/planes" className="bg-white text-black py-2 px-4 font-medium tracking-wider uppercase hover:bg-gray-200 transition-colors duration-300">Ver detalles</a>
+                <a href="/fabiana" className="bg-white text-black py-2 px-4 font-medium tracking-wider uppercase hover:bg-gray-200 transition-colors duration-300 text-sm">Estrategia</a>
+                <a href="/nicolas" className="border border-gray-400 text-white py-2 px-4 font-medium tracking-wider uppercase hover:border-white hover:bg-white/10 transition-colors duration-300 text-sm">Desarrollo</a>
               </div>
             </article>
             <article className="group p-8 bg-black border border-gray-800 hover:border-white transition-all duration-500">
-              <div className="flex items-start justify-between mb-3">
-                <span className="inline-block px-3 py-1 text-xs tracking-wider uppercase bg-white/5 border border-gray-800 text-gray-400 rounded-full">Premium</span>
-                <span className="text-sm text-gray-500">3–4 semanas</span>
+              <div className="flex items-start justify-between mb-4">
+                <span className="inline-block px-3 py-1 text-xs tracking-wider uppercase bg-white/5 border border-gray-800 text-gray-400 rounded-full">Empresarial</span>
+                <span className="text-sm text-gray-500">8-12 semanas</span>
               </div>
-              <h3 className="text-2xl font-semibold">$2.500.000</h3>
-              <ul className="mt-4 ml-5 list-disc text-gray-400 space-y-1">
-                <li>Todo Pro</li>
-                <li>Dashboard + IA</li>
-                <li>Hosting + dominio + SSL</li>
+              <h3 className="text-3xl font-bold mb-2">$2.500.000</h3>
+              <h4 className="text-lg text-gray-300 mb-4 font-light">Solución Empresarial</h4>
+              <p className="text-sm text-gray-400 mb-6">Para empresas establecidas que necesitan soluciones robustas y escalables.</p>
+              <ul className="mt-4 space-y-2 text-gray-400 text-sm">
+                <li className="flex items-start gap-2">
+                  <span className="text-white mt-1">•</span>
+                  <span>Todo el plan Avanzado</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-white mt-1">•</span>
+                  <span>E-commerce completo</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-white mt-1">•</span>
+                  <span>Backend robusto</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-white mt-1">•</span>
+                  <span>Sistema de pagos</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-white mt-1">•</span>
+                  <span>API REST personalizada</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-white mt-1">•</span>
+                  <span>Mantenimiento 6 meses</span>
+                </li>
               </ul>
               <div className="mt-6 flex gap-3">
-                <a href="/planes" className="bg-white text-black py-2 px-4 font-medium tracking-wider uppercase hover:bg-gray-200 transition-colors duration-300">Ver detalles</a>
+                <a href="/fabiana" className="bg-white text-black py-2 px-4 font-medium tracking-wider uppercase hover:bg-gray-200 transition-colors duration-300 text-sm">Estrategia</a>
+                <a href="/nicolas" className="border border-gray-400 text-white py-2 px-4 font-medium tracking-wider uppercase hover:border-white hover:bg-white/10 transition-colors duration-300 text-sm">Desarrollo</a>
               </div>
             </article>
           </div>

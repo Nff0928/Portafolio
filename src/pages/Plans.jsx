@@ -1,4 +1,5 @@
 import React from 'react';
+import { ArrowLeft } from 'lucide-react';
 
 const Plans = () => {
   return (
@@ -6,7 +7,16 @@ const Plans = () => {
       <a href="#contacto" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:bg-white focus:text-black focus:px-3 focus:py-2">Saltar al contacto</a>
       <nav className="fixed w-full top-0 z-50 bg-black bg-opacity-95 backdrop-blur-sm border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
-          <div className="text-2xl font-light tracking-widest">PLANES</div>
+          <div className="flex items-center gap-6">
+            <a 
+              href="/" 
+              className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors duration-300"
+            >
+              <ArrowLeft size={16} />
+              <span className="tracking-wider uppercase">Volver al inicio</span>
+            </a>
+            <div className="text-2xl font-light tracking-widest">PLANES</div>
+          </div>
           <a href="/#contacto" className="border border-gray-800 text-white py-2 px-4 font-medium tracking-wider uppercase hover:border-white transition-colors duration-300">Solicitar cotización</a>
         </div>
       </nav>

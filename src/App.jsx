@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Menu, X, ChevronDown, Instagram, Twitter, Mail, Linkedin, Target, TrendingUp, Users, Award, Briefcase, Sparkles, Code, BarChart3, Database, Globe } from 'lucide-react';
+import { Menu, X, ChevronDown, Instagram, Twitter, Mail, Linkedin, Target, TrendingUp, Users, Award, Briefcase, Sparkles, Code, BarChart3, Database, Globe, ArrowLeft, FileText, Package, GraduationCap, ShoppingBag, Settings, Eye, CheckCircle2 } from 'lucide-react';
 import './index.css';
+import PixoraLogo from './components/PixoraLogo';
 
 const DualPortfolio = ({ initialProfile = 'fabiana' }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,7 +17,7 @@ const DualPortfolio = ({ initialProfile = 'fabiana' }) => {
     { 
       name: 'Servicios', 
       href: '#services',
-      submenu: ['Brand Styling', 'Estrategia Digital', 'Dirección Creativa', 'Consultoría']
+      submenu: ['Paquetes', 'Programas de Formación']
     },
     { 
       name: 'Experiencia', 
@@ -35,7 +36,7 @@ const DualPortfolio = ({ initialProfile = 'fabiana' }) => {
     { 
       name: 'Servicios', 
       href: '#services',
-      submenu: ['Desarrollo Web', 'Analítica de Datos', 'QA Testing', 'Consultoría']
+      submenu: ['Paquetes', 'Servicios Especializados']
     },
     { 
       name: 'Tecnologías', 
@@ -76,40 +77,123 @@ const DualPortfolio = ({ initialProfile = 'fabiana' }) => {
   ];
 
   const fabianaSkills = [
-    'Diseño Estratégico',
-    'Control de Proyectos',
-    'Investigación de Mercado',
-    'Adobe Photoshop',
-    'Resolución Creativa',
-    'Marketing & Ventas',
-    'Budget Management',
-    'Vendor Management',
-    'Coordinating Skills',
-    'Dirección de Proyectos',
-    'Activity Coordination',
-    'SEO'
+    'Diseño de Moda',
+    'Mercadeo',
+    'Gestión de Procesos',
+    'Retail',
+    'Marcas de Lujo',
+    'Estrategia Comercial',
+    'Formación de Equipos',
+    'Dirección Creativa',
+    'Brand Styling',
+    'Optimización de Procesos',
+    'Fashion Mix',
+    'Análisis de Ventas'
   ];
 
-  const fabianaServices = [
+  // Paquetes principales de servicios
+  const fabianaPackages = [
+    {
+      icon: <Eye size={32} strokeWidth={1.5} />,
+      title: 'PAQUETE 1: Diagnóstico + Dirección',
+      subtitle: 'Visión Coherente',
+      duration: '2 semanas',
+      objective: 'Entender la marca, alinear visión y dejar una hoja de ruta clara.',
+      includes: [
+        'Revisión del ADN de marca (identidad, valores, tono y mensaje)',
+        'Auditoría visual (producto, vitrinas, redes, punto de venta, empaques)',
+        'Auditoría de comunicación (copywriting, discurso de venta, narrativa)',
+        'Auditoría de procesos internos del equipo creativo y comercial',
+        'Sesión estratégica con líderes para alinear visión',
+        'Entrega de Guía de Coherencia de Marca'
+      ],
+      idealFor: 'Marcas que sienten "desorden" o falta de dirección',
+      result: 'La marca entiende quién es, qué transmite y cómo debe avanzar sin improvisar',
+      delivery: 'Documento + Reunión de presentación'
+    },
     {
       icon: <Sparkles size={32} strokeWidth={1.5} />,
-      title: 'Brand Styling',
-      description: 'Construcción de presencia auténtica y relevante desde la narrativa visual hasta la dirección creativa de colecciones'
+      title: 'PAQUETE 2: Sistema + Ejecución Guiada',
+      subtitle: 'Creatividad que Vende',
+      duration: '4-6 semanas',
+      objective: 'Traducir la estética de la marca en procesos claros y aplicables al día a día.',
+      includes: [
+        'Todo el Paquete 1',
+        'Diseño del Manual de Identidad Estética (mood, color, producto, lenguaje visual)',
+        'Estructuración del calendario de colecciones y drops',
+        'Matriz de combinaciones o fashion mix para incrementar ticket promedio',
+        'Lineamientos para vitrinas y experiencia en tienda',
+        'Guía para contenido digital alineado con la estética y campañas',
+        'Capacitación a los equipos involucrados (Visual/Diseño, Ventas, Social media)'
+      ],
+      idealFor: 'Marcas con estética definida pero ejecución inconsistente',
+      result: 'La creatividad se vuelve consistente y replicable → la marca se reconoce y vende mejor',
+      delivery: 'Manual + Plantillas + 1 Taller de formación'
     },
     {
-      icon: <Target size={32} strokeWidth={1.5} />,
-      title: 'Estrategia 360°',
-      description: 'Diseño de estrategias a medida que conectan identidad, tendencia y propósito con el ADN de cada marca'
+      icon: <Award size={32} strokeWidth={1.5} />,
+      title: 'PAQUETE 3: Acompañamiento Integral y Formación',
+      subtitle: 'Marca Viva',
+      duration: '3 a 6 meses (renovable)',
+      objective: 'Acompañar a la empresa en la implementación, aprendizaje y mejoramiento continuo.',
+      includes: [
+        'Paquete 1 + 2',
+        'Acompañamiento mensual (consultoría + seguimiento de KPIs creativos y de ventas)',
+        'Diseño y dirección de campañas por temporada',
+        'Supervisión y retroalimentación semanal de ejecución (tiendas, redes, visual)',
+        'Formación continua y entrenamiento del equipo (workshops mensuales)',
+        'Manual vivo que evoluciona con la marca',
+        'Sesiones de dirección creativa para lanzamiento de colecciones'
+      ],
+      idealFor: 'Marcas que están en crecimiento y necesitan sostener coherencia en el tiempo',
+      result: 'La marca no solo se organiza — se transforma desde adentro, crea cultura y se sostiene en el tiempo sin depender de ti',
+      delivery: 'Consultoría + dirección + capacitación continua'
+    }
+  ];
+
+  // Programas de formación
+  const fabianaTrainingPrograms = [
+    {
+      icon: <Settings size={32} strokeWidth={1.5} />,
+      title: 'Análisis y Optimización de Procesos',
+      objective: 'Mejorar tiempos, calidad y eficiencia en el flujo de trabajo creativo, comercial o de producción.',
+      includes: [
+        'Mapeo de procesos actuales (cómo está funcionando hoy)',
+        'Identificación de cuellos de botella y puntos de fuga',
+        'Diseño de flujos de trabajo claros y repetibles',
+        'Guías y formatos para implementación',
+        'Acompañamiento en la transición al nuevo sistema'
+      ],
+      results: 'Menos retrabajos, mejor comunicación interna, tiempos más claros y ejecutables, mayor calidad y consistencia en la entrega final',
+      idealFor: 'Equipos creativos, de diseño, producción o gerencias que necesitan organización y claridad'
     },
     {
-      icon: <TrendingUp size={32} strokeWidth={1.5} />,
-      title: 'Marketing Global',
-      description: 'Coordinación de marketing y contenido con visión internacional y enfoque en resultados medibles'
+      icon: <ShoppingBag size={32} strokeWidth={1.5} />,
+      title: 'Formación para Equipos de Venta',
+      objective: 'Convertir a los vendedores en embajadores de marca capaces de conectar con el cliente, contar historias y aumentar el ticket promedio.',
+      includes: [
+        'La marca como experiencia (no solo producto)',
+        'Cómo crear conexión emocional con el cliente',
+        'Construcción de mezclas y sugerencias (fashion mix)',
+        'Lenguaje corporal, presencia y estilo personal',
+        'Técnicas de cierre suave y no invasivo',
+        '7 Pasos de la venta'
+      ],
+      results: 'Clientes que recuerdan la experiencia, ventas más naturales, humanas y elevadas, equipos más seguros, confiados y motivados',
+      idealFor: 'Retail, boutiques, marcas emergentes y franquicias'
     },
     {
-      icon: <Briefcase size={32} strokeWidth={1.5} />,
-      title: 'Gestión de Proyectos',
-      description: 'Dirección integral de proyectos para marcas de lujo, premium y retail con control de calidad'
+      icon: <Users size={32} strokeWidth={1.5} />,
+      title: 'Formación para Equipos de Producción',
+      objective: 'Mejorar la toma de decisiones sobre materiales, tiempos y secuencias de producción para garantizar calidad y coherencia con la propuesta de marca.',
+      includes: [
+        'Criterios de calidad y terminación',
+        'Optimización de tiempos y control de errores',
+        'Comunicación entre diseño y taller',
+        'Estándares visuales y funcionales'
+      ],
+      results: 'Menos desperdicio, mejor calidad final y procesos más fluidos',
+      idealFor: 'Talleres internos o aliados externos'
     }
   ];
 
@@ -134,6 +218,127 @@ const DualPortfolio = ({ initialProfile = 'fabiana' }) => {
       icon: <Database size={32} strokeWidth={1.5} />,
       title: 'Desarrollo Backend',
       description: 'Soluciones robustas con Java, Spring Boot, Python Django y bases de datos PostgreSQL'
+    }
+  ];
+
+  // Paquetes principales de servicios para Nicolás
+  const nicolasPackages = [
+    {
+      icon: <Globe size={32} strokeWidth={1.5} />,
+      title: 'PAQUETE 1: Landing Page Básica',
+      subtitle: 'Presencia Digital Inicial',
+      duration: '2-3 semanas',
+      price: '$600.000',
+      objective: 'Crear una presencia digital profesional con sitio web optimizado y funcional.',
+      includes: [
+        'Diseño de landing page 1-3 secciones',
+        'Diseño responsive (móvil, tablet, desktop)',
+        'Optimización SEO básica',
+        'Integración de formulario de contacto',
+        'Textos optimizados con IA',
+        'Hosting y dominio por 1 año',
+        'Capacitación básica de uso'
+      ],
+      idealFor: 'Empresas que necesitan presencia digital básica y profesional',
+      result: 'Sitio web profesional que genera confianza y captura leads efectivamente',
+      delivery: 'Sitio web funcional + Documentación técnica + Capacitación'
+    },
+    {
+      icon: <BarChart3 size={32} strokeWidth={1.5} />,
+      title: 'PAQUETE 2: Sitio Web Avanzado',
+      subtitle: 'Solución Digital Completa',
+      duration: '4-6 semanas',
+      price: '$1.200.000',
+      objective: 'Desarrollar una plataforma web completa con analítica integrada y funcionalidades avanzadas.',
+      includes: [
+        'Todo el Paquete 1',
+        'Sitio web completo (5-8 páginas)',
+        'Sistema de analítica Google Analytics 4',
+        'Chatbot con IA (WhatsApp/Web)',
+        'Formularios conectados (Google Sheets/Email)',
+        'Optimización de velocidad y rendimiento',
+        'Certificado SSL y seguridad básica',
+        'Panel de administración básico',
+        'Integración con redes sociales',
+        'Capacitación avanzada del equipo'
+      ],
+      idealFor: 'Empresas en crecimiento que necesitan funcionalidades avanzadas y medición de resultados',
+      result: 'Plataforma digital completa que convierte visitantes en clientes y proporciona datos valiosos',
+      delivery: 'Sitio web completo + Dashboard de analítica + Capacitación + Soporte 1 mes'
+    },
+    {
+      icon: <Code size={32} strokeWidth={1.5} />,
+      title: 'PAQUETE 3: E-commerce + Backend',
+      subtitle: 'Solución Empresarial',
+      duration: '8-12 semanas',
+      price: '$2.500.000',
+      objective: 'Desarrollar una solución empresarial completa con e-commerce, backend robusto y sistema de gestión.',
+      includes: [
+        'Paquete 1 + 2',
+        'Tienda online completa (e-commerce)',
+        'Sistema de pagos integrado',
+        'Backend robusto con Java/Python',
+        'Base de datos PostgreSQL optimizada',
+        'Sistema de gestión de inventario',
+        'API REST para integraciones',
+        'Testing y QA completo',
+        'Documentación técnica completa',
+        'Mantenimiento por 6 meses',
+        'Soporte técnico prioritario',
+        'Capacitación completa del equipo'
+      ],
+      idealFor: 'Empresas establecidas que necesitan soluciones robustas y escalables',
+      result: 'Ecosistema digital completo que automatiza procesos y escala con el negocio',
+      delivery: 'Plataforma completa + Código fuente + Mantenimiento + Soporte técnico + Capacitación'
+    }
+  ];
+
+  // Servicios especializados para Nicolás
+  const nicolasSpecializedServices = [
+    {
+      icon: <Database size={32} strokeWidth={1.5} />,
+      title: 'Desarrollo Backend Personalizado',
+      objective: 'Crear sistemas backend robustos y escalables para aplicaciones web y móviles.',
+      includes: [
+        'Arquitectura de microservicios',
+        'APIs REST y GraphQL',
+        'Integración con bases de datos',
+        'Autenticación y autorización',
+        'Testing automatizado',
+        'Documentación de API'
+      ],
+      results: 'Sistemas backend confiables, escalables y mantenibles que soportan el crecimiento del negocio',
+      idealFor: 'Empresas que necesitan sistemas backend personalizados o migración de sistemas legacy'
+    },
+    {
+      icon: <BarChart3 size={32} strokeWidth={1.5} />,
+      title: 'Implementación de Analítica Avanzada',
+      objective: 'Configurar sistemas de medición y análisis de datos para optimizar el rendimiento digital.',
+      includes: [
+        'Google Analytics 4 y Google Tag Manager',
+        'Eventos personalizados y conversiones',
+        'Dashboards de KPI en tiempo real',
+        'Integración con CRM y herramientas de marketing',
+        'Reportes automatizados',
+        'Capacitación del equipo'
+      ],
+      results: 'Visibilidad completa del rendimiento digital con datos accionables para la toma de decisiones',
+      idealFor: 'Empresas que necesitan insights profundos sobre el comportamiento de usuarios y ROI'
+    },
+    {
+      icon: <Code size={32} strokeWidth={1.5} />,
+      title: 'QA Testing y Optimización',
+      objective: 'Asegurar la calidad y rendimiento de aplicaciones web mediante testing exhaustivo.',
+      includes: [
+        'Testing funcional y de regresión',
+        'Testing de rendimiento y carga',
+        'Testing de seguridad básica',
+        'Optimización de velocidad',
+        'Testing cross-browser',
+        'Documentación de bugs y mejoras'
+      ],
+      results: 'Aplicaciones web estables, rápidas y libres de errores que proporcionan excelente experiencia de usuario',
+      idealFor: 'Empresas con aplicaciones existentes que necesitan optimización y aseguramiento de calidad'
     }
   ];
 
@@ -207,9 +412,18 @@ const DualPortfolio = ({ initialProfile = 'fabiana' }) => {
       <nav className="fixed w-full top-0 z-50 bg-black bg-opacity-95 backdrop-blur-sm border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between h-20">
-            {/* Logo */}
-            <div className="text-2xl font-light tracking-widest">
-              {currentProfile === 'fabiana' ? 'FABIANA LUENGAS' : 'NICOLÁS FONSECA'}
+            {/* Logo and Back Button */}
+            <div className="flex items-center gap-6">
+              <a 
+                href="/" 
+                className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors duration-300"
+              >
+                <ArrowLeft size={16} />
+                <span className="tracking-wider uppercase">Volver al inicio</span>
+              </a>
+              <div className="text-2xl font-light tracking-widest">
+                {currentProfile === 'fabiana' ? 'FABIANA LUENGAS' : 'NICOLÁS FONSECA'}
+              </div>
             </div>
 
             {/* Desktop Menu */}
@@ -299,12 +513,12 @@ const DualPortfolio = ({ initialProfile = 'fabiana' }) => {
           </h1>
           <p className="text-2xl md:text-3xl font-light tracking-wide text-gray-300 mb-4">
             {currentProfile === 'fabiana' 
-              ? 'Brand Stylist & Creative Strategist' 
+              ? 'Diseñadora de Moda + Mercadóloga + Experta en Procesos' 
               : 'Especialista en Páginas Web y Analítica de Datos'}
           </p>
           <p className="text-lg md:text-xl font-light tracking-wide text-gray-400 max-w-3xl mx-auto leading-relaxed">
             {currentProfile === 'fabiana' 
-              ? 'Ayudo a marcas a construir presencia auténtica y relevante en el mercado'
+              ? 'Experiencia en retail + Especialización en marcas de lujo. No solo hago que la marca se vea bonita, sino que también funciona y vende'
               : 'Desarrollo sitios web funcionales con enfoque en analítica de datos para optimizar la experiencia digital'}
           </p>
         </div>
@@ -331,18 +545,28 @@ const DualPortfolio = ({ initialProfile = 'fabiana' }) => {
               {currentProfile === 'fabiana' ? (
                 <>
                   <p className="text-lg leading-relaxed text-gray-300 mb-6">
-                    Soy una <span className="text-white font-normal">estratega digital con enfoque 360°</span> especializada en diseñar y ejecutar planes integrales para redes sociales que generan resultados medibles y memorables.
+                    Soy <span className="text-white font-normal">Diseñadora de Moda + Mercadóloga + Experta en procesos</span> con experiencia en retail y especialización en marcas de lujo. Esta combinación única me permite tener de la mano la <span className="text-white font-normal">creatividad (estética) y la estrategia (números)</span>, que en muchos casos van por aparte.
                   </p>
                   <p className="text-lg leading-relaxed text-gray-300 mb-6">
-                    Ayudo a marcas a construir <span className="text-white font-normal">presencia auténtica y relevante en el mercado</span>, desde la narrativa visual hasta la dirección creativa de colecciones.
+                    Mi enfoque integra <span className="text-white font-normal">Diseño + Estrategia + Ejecución + Formación</span>. Trabajar conmigo implica estrategias basadas en ventas reales, procesos claros que facilitan el trabajo del equipo, una estética coherente con la identidad de marca y formación al equipo para que la ejecución sí pase.
                   </p>
                   <p className="text-lg leading-relaxed text-gray-300 mb-8">
-                    Mi experiencia combina <span className="text-white font-normal">creatividad, análisis de datos y visión de negocio</span>, logrando conectar marcas con sus audiencias a través de campañas dinámicas y experiencias digitales.
+                    Transformo ideas de moda en experiencias de marca digitales coherentes, rentables y elevadas. Mi diferencial: <span className="text-white font-normal">visión integrada de estética de lujo + negocio + digital, ejecución completa desde la idea hasta la implementación y formación, y orientación a resultados</span> — no se trata solo de verse bien, se trata de vender y sostener.
                   </p>
-                  <div className="border-l-4 border-white pl-6">
-                    <p className="text-xl font-light italic text-gray-200">
-                      "Diseño estrategias a medida que conectan identidad, tendencia y propósito, alineando con el ADN de cada marca."
+                  <div className="border-l-4 border-white pl-6 mb-6">
+                    <p className="text-xl font-light italic text-gray-200 mb-4">
+                      "No solo hago que la marca se vea bonita, sino que también funciona y vende."
                     </p>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4 text-sm">
+                    <div className="bg-gray-900 p-4 border border-gray-800">
+                      <p className="text-white font-semibold mb-2">MI DIFERENCIAL</p>
+                      <p className="text-gray-400">Creatividad + Estrategia</p>
+                    </div>
+                    <div className="bg-gray-900 p-4 border border-gray-800">
+                      <p className="text-white font-semibold mb-2">ENFOQUE</p>
+                      <p className="text-gray-400">Diseño + Estrategia + Ejecución + Formación</p>
+                    </div>
                   </div>
                 </>
               ) : (
@@ -371,27 +595,191 @@ const DualPortfolio = ({ initialProfile = 'fabiana' }) => {
       {/* Services Section */}
       <section id="services" className="py-32 px-6 lg:px-12 bg-gradient-to-b from-black to-gray-900">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-5xl font-thin tracking-widest mb-16 text-center">
+          <h2 className="text-5xl font-thin tracking-widest mb-8 text-center">
             SERVICIOS
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {(currentProfile === 'fabiana' ? fabianaServices : nicolasServices).map((service, idx) => (
-              <div 
-                key={idx} 
-                className="group p-8 bg-black border border-gray-800 hover:bg-white hover:text-black transition-all duration-500 cursor-pointer"
-              >
-                <div className="mb-6 group-hover:scale-110 transition-transform duration-300">
-                  {service.icon}
+          <p className="text-center text-gray-400 mb-16 text-lg max-w-3xl mx-auto">
+            {currentProfile === 'fabiana' 
+              ? 'Paquetes integrales diseñados para transformar tu marca desde la visión hasta la ejecución sostenible'
+              : 'Servicios especializados para impulsar tu presencia digital'}
+          </p>
+          
+          {currentProfile === 'fabiana' ? (
+            <>
+              {/* Paquetes principales */}
+              <div id="paquetes" className="mb-24">
+                <h3 className="text-3xl font-thin tracking-widest mb-12 text-center uppercase">Paquetes</h3>
+                <div className="grid md:grid-cols-3 gap-8 mb-16">
+                  {fabianaPackages.map((pkg, idx) => (
+                    <div 
+                      key={idx} 
+                      className="group p-8 bg-black border border-gray-800 hover:border-white transition-all duration-500"
+                    >
+                      <div className="mb-6 group-hover:scale-110 transition-transform duration-300 text-white">
+                        {pkg.icon}
+                      </div>
+                      <div className="mb-4">
+                        <span className="text-xs tracking-widest uppercase text-gray-500 mb-2 block">{pkg.duration}</span>
+                        <h4 className="text-xl tracking-wider mb-2 font-normal">{pkg.title}</h4>
+                        <h5 className="text-lg text-gray-300 mb-4 font-light italic">{pkg.subtitle}</h5>
+                      </div>
+                      <p className="text-sm text-gray-400 mb-6 leading-relaxed">{pkg.objective}</p>
+                      
+                      <div className="mb-6">
+                        <p className="text-xs tracking-widest uppercase text-gray-500 mb-3">Incluye:</p>
+                        <ul className="space-y-2 text-sm text-gray-400">
+                          {pkg.includes.map((item, itemIdx) => (
+                            <li key={itemIdx} className="flex items-start gap-2">
+                              <CheckCircle2 size={16} className="mt-0.5 flex-shrink-0 text-gray-600" />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      
+                      <div className="mb-4 pt-6 border-t border-gray-800">
+                        <p className="text-xs tracking-widest uppercase text-gray-500 mb-2">Ideal para:</p>
+                        <p className="text-sm text-gray-400 mb-4">{pkg.idealFor}</p>
+                        <p className="text-xs tracking-widest uppercase text-gray-500 mb-2">Resultado:</p>
+                        <p className="text-sm text-gray-300 italic">{pkg.result}</p>
+                        <p className="text-xs text-gray-600 mt-4">Entregado como: {pkg.delivery}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-                <h3 className="text-xl tracking-wider mb-4 font-normal">
-                  {service.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-gray-400 group-hover:text-gray-700">
-                  {service.description}
-                </p>
               </div>
-            ))}
-          </div>
+
+              {/* Programas de formación */}
+              <div id="programas-formacion" className="mt-24">
+                <h3 className="text-3xl font-thin tracking-widest mb-12 text-center uppercase">Programas de Formación y Capacitación</h3>
+                <p className="text-center text-gray-400 mb-12 text-base max-w-3xl mx-auto">
+                  Programas diseñados para elevar las habilidades, la cultura y la coherencia interna de los equipos. Cada formación se adapta al nivel de madurez y necesidades específicas de la marca.
+                </p>
+                <div className="grid md:grid-cols-3 gap-8">
+                  {fabianaTrainingPrograms.map((program, idx) => (
+                    <div 
+                      key={idx} 
+                      className="group p-8 bg-black border border-gray-800 hover:border-white transition-all duration-500"
+                    >
+                      <div className="mb-6 group-hover:scale-110 transition-transform duration-300 text-white">
+                        {program.icon}
+                      </div>
+                      <h4 className="text-xl tracking-wider mb-4 font-normal">{program.title}</h4>
+                      <p className="text-sm text-gray-400 mb-6 leading-relaxed">{program.objective}</p>
+                      
+                      <div className="mb-6">
+                        <p className="text-xs tracking-widest uppercase text-gray-500 mb-3">Incluye:</p>
+                        <ul className="space-y-2 text-sm text-gray-400">
+                          {program.includes.map((item, itemIdx) => (
+                            <li key={itemIdx} className="flex items-start gap-2">
+                              <CheckCircle2 size={16} className="mt-0.5 flex-shrink-0 text-gray-600" />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      
+                      <div className="mb-4 pt-6 border-t border-gray-800">
+                        <p className="text-xs tracking-widest uppercase text-gray-500 mb-2">Resultados esperados:</p>
+                        <p className="text-sm text-gray-300 mb-4">{program.results}</p>
+                        <p className="text-xs tracking-widest uppercase text-gray-500 mb-2">Ideal para:</p>
+                        <p className="text-sm text-gray-400">{program.idealFor}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </>
+          ) : (
+            <>
+              {/* Paquetes principales para Nicolás */}
+              <div id="paquetes" className="mb-24">
+                <h3 className="text-3xl font-thin tracking-widest mb-12 text-center uppercase">Paquetes</h3>
+                <div className="grid md:grid-cols-3 gap-8 mb-16">
+                  {nicolasPackages.map((pkg, idx) => (
+                    <div 
+                      key={idx} 
+                      className="group p-8 bg-black border border-gray-800 hover:border-white transition-all duration-500"
+                    >
+                      <div className="mb-6 group-hover:scale-110 transition-transform duration-300 text-white">
+                        {pkg.icon}
+                      </div>
+                      <div className="mb-4">
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-xs tracking-widest uppercase text-gray-500">{pkg.duration}</span>
+                          <span className="text-2xl font-bold text-white">{pkg.price}</span>
+                        </div>
+                        <h4 className="text-xl tracking-wider mb-2 font-normal">{pkg.title}</h4>
+                        <h5 className="text-lg text-gray-300 mb-4 font-light italic">{pkg.subtitle}</h5>
+                      </div>
+                      <p className="text-sm text-gray-400 mb-6 leading-relaxed">{pkg.objective}</p>
+                      
+                      <div className="mb-6">
+                        <p className="text-xs tracking-widest uppercase text-gray-500 mb-3">Incluye:</p>
+                        <ul className="space-y-2 text-sm text-gray-400">
+                          {pkg.includes.map((item, itemIdx) => (
+                            <li key={itemIdx} className="flex items-start gap-2">
+                              <CheckCircle2 size={16} className="mt-0.5 flex-shrink-0 text-gray-600" />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      
+                      <div className="mb-4 pt-6 border-t border-gray-800">
+                        <p className="text-xs tracking-widest uppercase text-gray-500 mb-2">Ideal para:</p>
+                        <p className="text-sm text-gray-400 mb-4">{pkg.idealFor}</p>
+                        <p className="text-xs tracking-widest uppercase text-gray-500 mb-2">Resultado:</p>
+                        <p className="text-sm text-gray-300 italic">{pkg.result}</p>
+                        <p className="text-xs text-gray-600 mt-4">Entregado como: {pkg.delivery}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Servicios especializados para Nicolás */}
+              <div id="servicios-especializados" className="mt-24">
+                <h3 className="text-3xl font-thin tracking-widest mb-12 text-center uppercase">Servicios Especializados</h3>
+                <p className="text-center text-gray-400 mb-12 text-base max-w-3xl mx-auto">
+                  Servicios técnicos especializados para empresas que necesitan soluciones personalizadas y de alto rendimiento.
+                </p>
+                <div className="grid md:grid-cols-3 gap-8">
+                  {nicolasSpecializedServices.map((service, idx) => (
+                    <div 
+                      key={idx} 
+                      className="group p-8 bg-black border border-gray-800 hover:border-white transition-all duration-500"
+                    >
+                      <div className="mb-6 group-hover:scale-110 transition-transform duration-300 text-white">
+                        {service.icon}
+                      </div>
+                      <h4 className="text-xl tracking-wider mb-4 font-normal">{service.title}</h4>
+                      <p className="text-sm text-gray-400 mb-6 leading-relaxed">{service.objective}</p>
+                      
+                      <div className="mb-6">
+                        <p className="text-xs tracking-widest uppercase text-gray-500 mb-3">Incluye:</p>
+                        <ul className="space-y-2 text-sm text-gray-400">
+                          {service.includes.map((item, itemIdx) => (
+                            <li key={itemIdx} className="flex items-start gap-2">
+                              <CheckCircle2 size={16} className="mt-0.5 flex-shrink-0 text-gray-600" />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      
+                      <div className="mb-4 pt-6 border-t border-gray-800">
+                        <p className="text-xs tracking-widest uppercase text-gray-500 mb-2">Resultados esperados:</p>
+                        <p className="text-sm text-gray-300 mb-4">{service.results}</p>
+                        <p className="text-xs tracking-widest uppercase text-gray-500 mb-2">Ideal para:</p>
+                        <p className="text-sm text-gray-400">{service.idealFor}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </>
+          )}
         </div>
       </section>
 
@@ -513,16 +901,16 @@ const DualPortfolio = ({ initialProfile = 'fabiana' }) => {
             {currentProfile === 'fabiana' ? (
               <>
                 <div className="text-center">
-                  <div className="text-6xl font-thin mb-4">5+</div>
-                  <p className="text-sm tracking-widest uppercase text-gray-600">Años de Experiencia</p>
-                </div>
-                <div className="text-center">
-                  <div className="text-6xl font-thin mb-4">8+</div>
-                  <p className="text-sm tracking-widest uppercase text-gray-600">Sectores Diversos</p>
-                </div>
-                <div className="text-center">
                   <div className="text-6xl font-thin mb-4">360°</div>
                   <p className="text-sm tracking-widest uppercase text-gray-600">Enfoque Integral</p>
+                </div>
+                <div className="text-center">
+                  <div className="text-6xl font-thin mb-4">3</div>
+                  <p className="text-sm tracking-widest uppercase text-gray-600">Paquetes Principales</p>
+                </div>
+                <div className="text-center">
+                  <div className="text-6xl font-thin mb-4">∞</div>
+                  <p className="text-sm tracking-widest uppercase text-gray-600">Creatividad + Estrategia</p>
                 </div>
               </>
             ) : (
@@ -553,7 +941,7 @@ const DualPortfolio = ({ initialProfile = 'fabiana' }) => {
           </h2>
           <p className="text-xl text-gray-400 mb-12 tracking-wide max-w-2xl mx-auto">
             {currentProfile === 'fabiana' 
-              ? '¿Listo para transformar tu marca? Conversemos sobre cómo crear una presencia auténtica y relevante'
+              ? '¿Listo para transformar tu marca? Conversemos sobre cómo crear una presencia auténtica que funcione y venda'
               : '¿Necesitas un sitio web que genere resultados? Conversemos sobre cómo impulsar tu presencia digital'}
           </p>
           <div className="flex justify-center gap-8 mb-16">

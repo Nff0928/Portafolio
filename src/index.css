@@ -1,1 +1,36 @@
 @import "tailwindcss";
+
+/* Custom Silver/Metallic Colors */
+:root {
+  --silver-100: #F5F5F5;
+  --silver-200: #E8E8E8;
+  --silver-300: #D4D4D4;
+  --silver-400: #C0C0C0;
+  --silver-500: #A8A8A8;
+  --silver-600: #808080;
+}
+
+.silver-100 {
+  color: var(--silver-100);
+}
+
+.silver-300 {
+  color: var(--silver-300);
+}
+
+.silver-400 {
+  color: var(--silver-400);
+}
+
+/* Gradient backgrounds for silver effect */
+.bg-gradient-silver {
+  background: linear-gradient(135deg, #C0C0C0 0%, #E5E5E5 50%, #A8A8A8 100%);
+}
+
+/* Hero background styles */
+.hero-background {
+  background-color: #0A101C;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(192, 192, 192, 0.05) 0%, transparent 70%),
+    linear-gradient(135deg, #0A101C 0%, #0F1625 50%, #0A101C 100%);
+}
